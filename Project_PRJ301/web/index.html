@@ -27,33 +27,34 @@ and open the template in the editor.
                 top: 0;
                 left: 0;
                 right: 0;
+                border-bottom: gold solid 1px;
             }
             
-            #nav {
+            #nav-header {
                 display: inline-block;
             }
             
-            #nav li {
+            #nav-header li {
                 
             }
             
-            #nav > li {
+            #nav-header > li {
                 display: inline-block;
             }
             
-            #nav li:hover a {
+            #nav-header li:hover a {
                 color: gold;
                 background-color: #000;
             }
             
-            #nav li a {
+            #nav-header li a {
                 text-decoration: none;
                 line-height: 50px;
                 padding: 0 24px;
                 display: block;
             }
             
-            #nav > li > a {
+            #nav-header > li > a {
                 color: #fff;
                 text-transform: uppercase;
             }
@@ -78,15 +79,65 @@ and open the template in the editor.
             
             #slider {
                 margin-top: 80px;
-                padding-top: 50%;
+/*                padding-top: 0%;
                 background-image: url(http://maychieure.net/wp-content/uploads/2017/12/Pho%CC%80ng-chi%C3%AA%CC%81u-r%E1%BA%A1p-chi%E1%BA%BFu-phim-Platinum-Cineplex.jpg);
                 background-size: 100% 400px;
-                background-repeat: no-repeat;
+                background-repeat: no-repeat;*/
+                height: 80px;
+                background-color: #000; 
+            }
+            
+            #nav-slider, .gerne {
+                list-style-type: none;
+            }
+            
+            #nav-slider > li {
+                display: inline-block;
+            }
+            
+            #nav-slider li {
+                position: relative;
+            }
+            
+            #nav-slider > li > a {
+                color: #fff;
+            }    
+            
+            #nav-slider li a {
                 
+                text-decoration: none;
+                line-height: 80px;
+                padding: 0 24px;
+                display: block;
+            }
+            
+            #nav-slider li:hover .gerne {
+                display: block;
+            }
+            
+            #nav-slider .gerne li:hover a,
+            #nav-slider > li:hover > a {
+                color: #000;
+                background-color: #ccc;
+            }
+            
+            #nav-slider .gerne {
+                display: none;
+                position: absolute;
+                background-color: #fff;
+                padding-left: 0px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            #nav-slider .gerne a {
+                color: #000;
+                padding: 0 16px;
+                line-height: 40px;
             }
             
             #content {
-                
+                min-height: 500px;
+                background: #fff;
             }
             
             #footer {
@@ -98,9 +149,9 @@ and open the template in the editor.
         <div id="main">
             <div id="header">
                 <!--begin nav-->
-                <ul id="nav">
+                <ul id="nav-header">
                     <li><a href="">Home</a></li>
-                    <li><a href="">Movie</a></li>
+                    <li><a href="">Over View</a></li>
                     <li><a href="">TV Show</a></li>
                 </ul>
                 <!--end nav-->
@@ -114,6 +165,31 @@ and open the template in the editor.
             </div>
             
             <div id="slider">
+                <!--begin nav-->
+                <ul id="nav-slider">
+                    <li>
+                        <a href="#">Gerne</a>
+                        <ul class="gerne">
+                            <li><a href="">Action</a></li>
+                            <li><a href="">Romantic</a></li>
+                            <li><a href="">Comedy</a></li>
+                            <li><a href="">Horror</a></li>
+                            <li><a href="">History</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Nation</a>
+                        <ul class="subnav">
+<!--                            <li><a href="">America</a></li>
+                            <li><a href="">Vietnam</a></li>-->
+                        </ul>
+                    </li>
+                    <li><a href="">Movie</a></li>
+                    <li><a href="">Series</a></li>
+                    <li><a href="">Anime</a></li>
+                    <li><a href="#">Year</a></li>
+                </ul>
+                <!--end nav-->
                 
             </div>
             <div id="content">
