@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            html {
+                font-family: Helvetica, Arial;
+            }
+            
+            #main{
+                background-color: #000;
+            }
+            
+            #header {
+                height: 80px;
+                background-color: #000;
+                text-align: center; 
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+            }
+            
+            #nav {
+                display: inline-block;
+            }
+            
+            #nav li {
+                
+            }
+            
+            #nav > li {
+                display: inline-block;
+            }
+            
+            #nav li:hover a {
+                color: gold;
+                background-color: #000;
+            }
+            
+            #nav li a {
+                text-decoration: none;
+                line-height: 50px;
+                padding: 0 24px;
+                display: block;
+            }
+            
+            #nav > li > a {
+                color: #fff;
+                text-transform: uppercase;
+            }
+            
+            #header .login-btn {
+                float: right;
+                padding: 0 24px;
+                display: block;
+                font-size: 20px;
+                line-height: 80px;
+            }
+
+            #header .login-btn:hover {
+                background-color: red;
+                cursor: pointer;
+            }
+            
+            #header .login-btn > a {
+                color: #fff;
+                text-decoration: none;
+            }
+            
+            #slider {
+                margin-top: 80px;
+                padding-top: 50%;
+                background-image: url(http://maychieure.net/wp-content/uploads/2017/12/Pho%CC%80ng-chi%C3%AA%CC%81u-r%E1%BA%A1p-chi%E1%BA%BFu-phim-Platinum-Cineplex.jpg);
+                background-size: 100% 400px;
+                background-repeat: no-repeat;
+                
+            }
+            
+            #content {
+                
+            }
+            
+            #footer {
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="header">
+                <!--begin nav-->
+                <ul id="nav">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Movie</a></li>
+                    <li><a href="">TV Show</a></li>
+                </ul>
+                <!--end nav-->
+            
+                <!--begin login button-->
+                <div class="login-btn">
+                    <a href="">Login</a>
+                </div>
+                <!--end search button-->
+            
+            </div>
+            
+            <div id="slider">
+                
+            </div>
+            <div id="content">
+                
+            </div>
+            <div id="footer">
+                
+            </div>
+        </div>
+    </body>
+</html>
