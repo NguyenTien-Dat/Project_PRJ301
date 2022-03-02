@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #main{
+                background-color: #000;
+            }
+            
+            #header {
+                height: 80px;
+                background-color: #000;
+                text-align: center; 
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                border-bottom: gold solid 1px;
+            }
+            
+            #nav-header {
+                display: inline-block;
+            }
+            
+            #nav-header li {
+                
+            }
+            
+            #nav-header > li {
+                display: inline-block;
+            }
+            
+            #nav-header li:hover a {
+                color: gold;
+                background-color: #000;
+            }
+            
+            #nav-header li a {
+                text-decoration: none;
+                line-height: 50px;
+                padding: 0 24px;
+                display: block;
+            }
+            
+            #nav-header > li > a {
+                color: #fff;
+                text-transform: uppercase;
+            }
+            
+            #slider {
+                margin-top: 80px;
+                padding-top: 0%;
+                background-image: url(https://pic.pikbest.com/01/98/05/15G888piCkYQ.jpg!w340);
+                background-size: 100% 670px;
+                background-repeat: no-repeat;
+                height: 670px;
+                background-color: #000; 
+            }
+            
+            #slider form {
+                text-align: center;
+                padding: 250px 590px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="header">
+                <!--begin nav-->
+                <ul id="nav-header">
+                </ul>
+                <!--end nav-->            
+            </div>
+            
+            <div id="slider">
+                <form id="form" name="input" action="LoginServlet" method="get">
+                    <table>
+                        <tr>
+                            <td>User name:</td><td><input type="text" name="user"/></td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td><td><input type="password" name="pass"/></td>
+                        </tr>
+                        <tr>
+                            <td></td><td><input type="submit" value="Login"/></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>    
+    </body>
+</html>
