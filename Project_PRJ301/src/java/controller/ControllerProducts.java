@@ -5,42 +5,64 @@
  */
 package controller;
 
+import DAL.DAOProducts;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Vector;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Page;
+import model.Products;
 
 /**
  *
  * @author MSI_PRO
  */
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "ControllerProducts", urlPatterns = {"/ControllerProducts"})
+public class ControllerProducts extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            DAOProducts dao = new DAOProducts();
+            String service = request.getParameter("do");
+            if (service == null) {
+                Vector<Products> vector = dao.listAllProduct("SELECT TOP 8 * FROM Products\n"
+                        + "order by Quantity DESC");
+
+                Vector<Products> v2 = dao.listAllProduct("SELECT TOP 3 * FROM Products\n"
+                        + "order by YEAR DESC");
+
+                Vector<Products> v3 = dao.listAllProduct("SELECT TOP 3 * FROM Products\n"
+                        + "where CategoryID=5");
+                request.setAttribute("v3", v3);
+                request.setAttribute("v2", v2);
+                request.setAttribute("vector", vector);
+                RequestDispatcher dispath = request.getRequestDispatcher("index.jsp");
+                dispath.forward(request, response);
+            }
+            if (service.equals("ALL")) {
+                Vector<Products> vector = dao.listAllProduct("SELECT * FROM Products");
+
+                int n = dao.Page();
+                String number = request.getParameter("page");
+                Vector<Page> vector1 = dao.getByPage(Integer.parseInt(number));
+                
+                request.setAttribute("vector", vector);
+                request.setAttribute("n", n);
+                request.setAttribute("vec", vector1);
+                RequestDispatcher dispath = request.getRequestDispatcher("products.jsp");
+                dispath.forward(request, response);
+
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -56,20 +78,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String u = request.getParameter("user");
-  	String p = request.getParameter("pass");
-//        ServletConfig sc = getServletConfig();
-//        String user = sc.getInitParameter("Username");
-//        String pass = sc.getInitParameter("Password");
-        
-        //String regex = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])";
-      
-        if(u.equals("admin") && p.equals("admin")) {
-            request.getRequestDispatcher("overview.jsp").forward(request, response);
-        }
-        else {
-            response.sendRedirect("login.html");
-        }
+        processRequest(request, response);
     }
 
     /**

@@ -1,3 +1,10 @@
+<%-- 
+    Document   : blog-single
+    Created on : Mar 9, 2022, 6:15:49 PM
+    Author     : MSI_PRO
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
 
@@ -189,10 +196,9 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav nav-main">
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="products.html">SHOP</a></li>
-                    <!-- <li class="active"><a href="blog.html">BLOG</a></li> -->
-                    <!-- <li><a href="blog-single.html">ARTICLE</a></li> -->
+                    <li><a href="index.jsp">HOME</a></li>
+                    <li><a href="products.jsp">SHOP</a></li>
+                    <li class="active"><a href="blog-single.jsp">ARTICLE</a></li>
                     <li class="dropdown">
                         <a href="#">
 							MOVIE GENRE
@@ -228,14 +234,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h1>YOUR CART</h1>
-                    <p>Latest News</p>
+                    <h1>BLOG</h1>
+                    <p>Latest News and Musings</p>
                 </div>
                 <!-- End of /.col-md-4 -->
                 <div class="col-md-8 hidden-xs">
                     <ol class="breadcrumb pull-right">
                         <li><a href="#">Home</a></li>
-                        <li class="active">Blog</li>
+                        <li><a href="#">Blog</a></li>
+                        <li class="active">Single Post</li>
                     </ol>
                 </div>
                 <!-- End of /.col-md-8 -->
@@ -246,96 +253,116 @@
     </section>
     <!-- End of /#Topic-header -->
 
-    <!--================================================== -->
 
-    <!-- cart -->
-    <div class="cart-section mt-150 mb-150">
+
+
+
+
+    <section id="blog">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-12">
-                    <div class="cart-table-wrap">
-                        <table class="cart-table">
-                            <thead class="cart-table-head">
-                                <tr class="table-head-row">
-                                    <th class="product-remove"></th>
-                                    <th class="product-image" style="padding-right: 50px; padding-left: 50px;">Product Image</th>
-                                    <th class="product-name" style="padding-right: 50px;">Name</th>
-                                    <th class="product-price" style="padding-right: 50px;">Price</th>
-                                    <th class="product-quantity">Quantity</th>
-                                    <!-- <th class="product-total" style="padding-left: 50px;">Total</th> -->
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="table-body-row">
-                                    <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                                    <td class="product-image"><img style="width: 50%; height: 50%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrdPsGJEBxBev7gKo_EMp0Pgk7Q7su_xTUxf3vo8dE9S_CiG2Z" alt=""></td>
-                                    <td class="product-name">Strawberry</td>
-                                    <td class="product-price">$85</td>
-                                    <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                </tr>
-                                <tr class="table-body-row">
-                                    <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                                    <td class="product-image"><img src="assets/img/products/product-img-2.jpg" alt=""></td>
-                                    <td class="product-name">Berry</td>
-                                    <td class="product-price">$70</td>
-                                    <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                </tr>
-                                <tr class="table-body-row">
-                                    <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                                    <td class="product-image"><img src="assets/img/products/product-img-3.jpg" alt=""></td>
-                                    <td class="product-name">Lemon</td>
-                                    <td class="product-price">$35</td>
-                                    <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <div class="col-md-9 clearfix">
+                    <ul class="blog-zone">
+                        <li>
+                            <div class="blog-icon">
+                                <i class="fa  fa-pencil"></i>
+                            </div>
+                            <div class="blog-box">
+                                <img src="images/blog-1.jpg" alt="">
 
-                <div class="col-lg-4">
-                    <div class="total-section">
-                        <table class="total-table">
-                            <thead class="total-table-head">
-                                <tr class="table-total-row">
-                                    <th>Total</th>
-                                    <th>Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="total-data">
-                                    <td><strong>Subtotal: </strong></td>
-                                    <td>$500</td>
-                                </tr>
-                                <tr class="total-data">
-                                    <td><strong>Shipping: </strong></td>
-                                    <td>$45</td>
-                                </tr>
-                                <tr class="total-data">
-                                    <td><strong>Total: </strong></td>
-                                    <td>$545</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="cart-buttons">
-                            <a href="cart.html" class="boxed-btn">Update Cart</a>
-                            <a href="checkout.html" class="boxed-btn black">Check Out</a>
+                                <div class="blog-post-body clearfix">
+                                    <a href="">
+                                        <h2>Ricebean black-eyed pea</h2>
+                                    </a>
+                                    <div class="blog-post-tag">
+                                        <div class="block">
+                                            <i class="fa fa-clock-o"></i>
+                                            <p>12 Jan,2014</p>
+                                        </div>
+                                        <div class="block">
+                                            <i class="fa fa-user"></i>
+                                            <p>Admin</p>
+                                        </div>
+                                        <div class="block">
+                                            <i class="fa fa-tags"></i>
+                                            <p>
+                                                <a href="">Food Culture</a>,
+                                                <a href="">Green Items</a>
+                                            </p>
+                                        </div>
+                                        <div class="block">
+                                            <i class="fa fa-comments"></i>
+                                            <p>3 Comments</p>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, nostrum inventore debitis accusantium natus praesentium enim sequi culpa provident dignissimos veniam deserunt voluptatibus fugit delectus pariatur
+                                        numquam optio quidem illo. Obcaecati, placeat, enim accusantium sunt inventore sed dolorum molestiae ab consequuntur voluptatem dolor necessitatibus reprehenderit adipisci explicabo hic quibusdam pariatur!</p>
+                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                                        clita kasd gubergren sed diam voluptua.</p>
+
+                                    <blockquote>
+                                        <p>Lorem ipsum dolor sit amet, in pri offendit ocurreret. Vix sumo ferri an. pfs adodio fugit delenit ut qui. Omittam suscipiantur ex vel,ex audiam intellegat gfIn labitur discere eos, nam an feugiat voluptua.</p>
+                                        <div class="block-qoute-by">
+                                            - John Doe , Author
+                                        </div>
+                                    </blockquote>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde expedita neque excepturi iste cumque! Dolorem, ipsum, totam, culpa ullam dolores qui possimus corrupti suscipit recusandae quam magnam quis eaque incidunt!</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- End of /.blog-zone -->
+
+                    <div class="block">
+                        <h4>Tag Cloud</h4>
+                        <div class="tag-link">
+                            <a href="">BALLET</a>
+                            <a href="">BLOG</a>
+                            <a href="">CHRISTMAS</a>
+                            <a href="">ELEGANCE</a>
+                            <a href="">ELEGANT</a>
+                            <a href="">SHOPPING</a>
+                            <a href="">SHOP</a>
+                            <a href="">PHOTOGRAPHY</a>
                         </div>
                     </div>
+                    <!-- End of /.block -->
 
-                    <div class="coupon-section">
-                        <h3>Apply Coupon</h3>
-                        <div class="coupon-form-wrap">
-                            <form action="index.html">
-                                <p><input type="text" placeholder="Coupon"></p>
-                                <p style="padding-bottom: 100px;"><input type="submit" value="Apply"></p>
-                            </form>
-                        </div>
-                    </div>
                 </div>
+                <!-- End of /.Sidebar -->
             </div>
+            <!-- End of /.col-md-3 -->
         </div>
-    </div>
-    <!-- end cart -->
+        <!-- End of /.row -->
+        </div>
+        <!-- End of /.container -->
+    </section>
+    <!-- End of /.Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <!-- FOOTER Start
@@ -355,23 +382,28 @@
                         <h4 class="connect-heading">CONNECT WITH US</h4>
                         <ul class="social-icon">
                             <li>
-                                <a class="facebook-icon " href="# ">
-                                    <img class=" " src="images/fb.png " alt="... ">
+                                <a class="facebook-icon" href="#">
+                                    <i class="fa fa-facebook"></i>
                                 </a>
                             </li>
                             <li>
-                                <a class="instagram-icon " href="# ">
-                                    <img class=" " src="images/instagram.png " alt="... ">
+                                <a class="plus-icon" href="#">
+                                    <i class="fa fa-google-plus"></i>
                                 </a>
                             </li>
                             <li>
-                                <a class="twitter-icon " href="# ">
-                                    <img class=" " src="images/twitter.png " alt="... ">
+                                <a class="twitter-icon" href="#">
+                                    <i class="fa fa-twitter"></i>
                                 </a>
                             </li>
                             <li>
-                                <a class="linkedin-icon " href="# ">
-                                    <img class=" " src="images/linkedin.png " alt="... ">
+                                <a class="pinterest-icon" href="#">
+                                    <i class="fa fa-pinterest"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="linkedin-icon" href="#">
+                                    <i class="fa fa-linkedin"></i>
                                 </a>
                             </li>
                         </ul>
