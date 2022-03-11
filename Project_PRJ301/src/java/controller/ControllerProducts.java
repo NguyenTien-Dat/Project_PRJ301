@@ -8,6 +8,7 @@ package controller;
 import DAL.DAOProducts;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.util.Vector;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -59,7 +60,27 @@ public class ControllerProducts extends HttpServlet {
                 request.setAttribute("vec", vector1);
                 RequestDispatcher dispath = request.getRequestDispatcher("products.jsp");
                 dispath.forward(request, response);
-
+            }
+            if (service.equals("blog")) {
+                String id = request.getParameter("id");
+                int pid = Integer.parseInt(id);
+                Vector<Products> vector = dao.SelectbyID(pid);
+                request.setAttribute("vector", vector);
+                RequestDispatcher dispath = request.getRequestDispatcher("blog-single.jsp");
+                dispath.forward(request, response);
+            }
+            if (service.equals("Category")) {
+                String id = request.getParameter("cate");
+                int cateid = Integer.parseInt(id);
+                Vector<Products> vector = dao.SelectbyCate(cateid);
+                ResultSet rs = dao.getData("select * from Categories c\n"
+                        + "join Products p on p.CategoryID=c.CategoryID\n"
+                        + "where c.CategoryID="+cateid);
+                
+                request.setAttribute("rs", rs);
+                request.setAttribute("vector", vector);
+                RequestDispatcher dispath = request.getRequestDispatcher("Category.jsp");
+                dispath.forward(request, response);
             }
         } catch (Exception ex) {
             ex.printStackTrace();

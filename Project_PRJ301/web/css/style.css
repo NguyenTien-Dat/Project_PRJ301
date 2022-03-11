@@ -587,7 +587,8 @@ header {
 .products-heading h2 {
     margin: 0px 0 20px;
     border-top: 5px solid red;
-    display: inline-block;
+/*    display: inline-block;*/
+    text-align: center;
 }
 
 .products {
