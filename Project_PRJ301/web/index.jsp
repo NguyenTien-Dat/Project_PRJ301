@@ -65,7 +65,8 @@
                             </li>
                             <li>
                                 <div class="cart dropdown">
-                                    <a data-toggle="dropdown" href="#"><i class="fa fa-shopping-cart"></i>Cart(1)</a>
+                                    <a href="Cart.jsp">
+                                        <i class="fa fa-shopping-cart"></i>Cart</a>
                                     <div class="dropdown-menu dropup">
                                         <span class="caret"></span>
                                         <ul class="media-list">
@@ -87,11 +88,16 @@
                     <div class="col-md-2">
                         <div class="search-box">
                             <div class="input-group">
-                                <input placeholder="Search Here" type="text" class="form-control">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"></button>
-                                </span>
-                            </div>
+                                <form action="ControllerProducts" method="post">
+                                    <table> 
+                                            <tr>
+                                                <input type="hidden" name="do" value="Search">
+                                                <td><input placeholder="Search Here" type="text" name="name" class="form-control"></td>
+                                                <td><button class="class" type="submit" value="search"></td>
+                                            </tr>
+                                        </div>
+                                    </table>
+                                </form>
                             <!-- /.input-group -->
                         </div>
                         <!-- /.search-box -->
@@ -203,21 +209,21 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav nav-main">
-                        <li class="active"><a href="#">HOME</a></li>
+                        <li class="active"><a href="ControllerProducts">HOME</a></li>
                         <li><a href="ControllerProducts?do=ALL&page=1">SHOP</a></li>
-                        <li><a href="blog-single.jsp">ARTICLE</a></li>
+                        <!--<li><a href="blog-single.jsp">ARTICLE</a></li>-->
                         <li class="dropdown">
                             <a href="#">
                                 MOVIE GENRE
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Romantic</a></li>
-                                <li><a href="#">Comedy</a></li>
-                                <li><a href="#">Horror</a></li>
-                                <li><a href="#">Science Fiction</a></li>
-                                <li><a href="#">Adventure</a></li>
+                                <li><a href="ControllerProducts?do=Category&cate=1">Action</a></li>
+                                <li><a href="ControllerProducts?do=Category&cate=2">Romantic</a></li>
+                                <li><a href="ControllerProducts?do=Category&cate=3">Comedy</a></li>
+                                <li><a href="ControllerProducts?do=Category&cate=4">Horror</a></li>
+                                <li><a href="ControllerProducts?do=Category&cate=5">Science Fiction</a></li>
+                                <li><a href="ControllerProducts?do=Category&cate=6">Adventure</a></li>
                             </ul>
                         </li>
                         <!-- End of /.dropdown -->
@@ -242,9 +248,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div id="slider" class="b">
-                            <%for(Products v: v3) {%>
-                            <img src="<%=v.getImagine() %>" alt="" />
-                       <%}%>
+                            <%for (Products v : v3) {%>
+                            <img src="<%=v.getImagine()%>" alt="" />
+                            <%}%>
                         </div>
                     </div>
                     <!-- End of /.col-md-12 -->
@@ -288,14 +294,14 @@
                                 <% for (Products v : v2) {%>
                                 <div class="col-sm-6 col-md-4 ">
                                     <div class="thumbnail ">
-                                        <a class="catagotie-head " href="blog-single.jsp ">
+                                        <a class="catagotie-head " href="ControllerProducts?do=blog&id=<%=v.getProductID()%>">
                                             <img src="<%=v.getImagine()%>" alt="... ">
                                             <h3><%=v.getProductName()%></h3>
                                         </a>
                                         <div class="caption ">
                                             <p><%=v.getDescription().substring(0, 105)%>...</p>
                                             <p>
-                                                <a href="blog-single.jsp " class="btn btn-default btn-transparent " role="button ">
+                                                <a href="ControllerProducts?do=blog&id=<%=v.getProductID()%>" class="btn btn-default btn-transparent " role="button ">
                                                     <span>Check Items</span>
                                                 </a>
                                             </p>
@@ -337,10 +343,10 @@
                     <% for (Products pro : vector) {%>
                     <div class="col-md-3 ">
                         <div class="products ">
-                            <a href="single-product.jsp ">
+                            <a href="ControllerProducts?do=blog&id=<%=pro.getProductID()%>">
                                 <img src="<%=pro.getImagine()%>" alt="">
                             </a>
-                            <a href="single-product.jsp ">
+                            <a href="ControllerProducts?do=blog&id=<%=pro.getProductID()%>">
                                 <h4><%=pro.getProductName()%></h4>
                             </a>
                             <p class="price "><%=pro.getPrice()%></p>

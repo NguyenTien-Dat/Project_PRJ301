@@ -15,7 +15,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Food Code Proudly Presents By Themexpert</title>
+        <title>Project PRJ301</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <!-- Fonts -->
@@ -53,7 +53,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <p class="contact-action"><i class="fa fa-phone-square"></i>IN CASE OF ANY QUESTIONS, CALL THIS NUMBER: <strong>+565 975 658</strong></p>
+                        <p class="contact-action">IN CASE OF ANY QUESTIONS, CALL THIS NUMBER: <strong>+565 975 658</strong></p>
                     </div>
                     <div class="col-md-3 clearfix">
                         <ul class="login-cart">
@@ -86,10 +86,16 @@
                     <div class="col-md-2">
                         <div class="search-box">
                             <div class="input-group">
-                                <input placeholder="Search Here" type="text" class="form-control">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"></button>
-                                </span>
+                                <form action="ControllerProducts" method="post">
+                                    <table> 
+                                            <tr>
+                                                <input type="hidden" name="do" value="Search">
+                                                <td><input placeholder="Search Here" type="text" name="name" class="form-control"></td>
+                                                <td><button class="class" type="submit" value="search"></td>
+                                            </tr>
+                                        </div>
+                                    </table>
+                                </form>
                             </div>
                             <!-- /.input-group -->
                         </div>
@@ -203,8 +209,8 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav nav-main">
                         <li><a href="ControllerProducts">HOME</a></li>
-                        <li class="active"><a href="products.jsp">SHOP</a></li>
-                        <li><a href="blog-single.jsp">ARTICLE</a></li>
+                        <li class="active"><a href="ControllerProducts?do=ALL&page=1">SHOP</a></li>
+<!--                        <li><a href="blog-single.jsp">ARTICLE</a></li>-->
                         <li class="dropdown">
                             <a href="#">
                                 MOVIE GENRE
@@ -241,6 +247,10 @@
                         <h1>Shop</h1>
                         <p>A Bunch Of Products</p>
                     </div>
+<!--                    <div class="col-md-4">
+                        <h1>Ghi gì ở đây không ô</h1>
+                        <p>A Bunch Of Products</p>
+                    </div>-->
                     <!-- End of /.col-md-4 -->
                     <div class="col-md-8 hidden-xs">
                         <ol class="breadcrumb pull-right">
@@ -382,7 +392,7 @@
                                 <!--<li class="active"><a href="#">1<span class="sr-only"></span></a></li>-->
                                 <c:forEach begin="1" end="${n}" var="c" >
                                     <li><a href="ControllerProducts?do=ALL&page=${c}">${c}</a></li>
-                                </c:forEach>>
+                                </c:forEach>
                                 <li><a href="#">»</a></li>
                             </ul>
                             <!-- End of /.pagination -->
@@ -392,37 +402,31 @@
                     <div class="col-md-3">
                         <div class="blog-sidebar">
                             <div class="block">
-                                <h4>Catagories</h4>
+                                <h4>Genre:</h4>
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa  fa-dot-circle-o"></i> Action Movie
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa  fa-dot-circle-o"></i> Romantic movie
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa  fa-dot-circle-o"></i> Comedy Movie
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa  fa-dot-circle-o"></i> Horror Movie
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa  fa-dot-circle-o"></i> Science Fiction Movie
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa  fa-dot-circle-o"></i> Adventure Movie
-                                    </a>
+                                    <a href="#" class="list-group-item"> Action Movie </a>
+                                    <a href="#" class="list-group-item"> Romantic Movie </a>
+                                    <a href="#" class="list-group-item"> Comedy Movie </a>
+                                    <a href="#" class="list-group-item"> Horror Movie </a>
+                                    <a href="#" class="list-group-item"> Science Fiction Movie </a>
+                                    <a href="#" class="list-group-item"> Adventure Movie </a>
                                 </div>
                             </div>
                             <div class="block">
-                                <img src="images/food-ad.png" alt="">
+                                <h4>Sort by:</h4>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item"> Name </a>
+                                    <a href="#" class="list-group-item"> Price </a>
+                                    <a href="#" class="list-group-item"> Year </a>
+                                    <a href="#" class="list-group-item"> ID </a>
+                                </div>
                             </div>
                             <div class="block">
                                 <h4>Latest Movie Items</h4>
                                 <ul class="media-list">
                                     <li class="media">
                                         <a class="pull-left" href="#">
-                                            <img class="media-object" src="images/post-img.png" alt="...">
+                                            <img class="media-object" src="images/slider1.jpg" alt="...">
                                         </a>
                                         <div class="media-body">
                                             <a href="" class="media-heading">Lamb leg roast
@@ -499,30 +503,25 @@
                                 The place to update the hottest new movies today.
                             </p>
                             <h4 class="connect-heading">CONNECT WITH US</h4>
-                            <ul class="social-icon">
+                            <ul class="social-icon ">
                                 <li>
-                                    <a class="facebook-icon" href="#">
-                                        <i class="fa fa-facebook"></i>
+                                    <a class="facebook-icon " href="# ">
+                                        <img class=" " src="images/fb.png " alt="... ">
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="plus-icon" href="#">
-                                        <i class="fa fa-google-plus"></i>
+                                    <a class="instagram-icon " href="# ">
+                                        <img class=" " src="images/instagram.png " alt="... ">
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="twitter-icon" href="#">
-                                        <i class="fa fa-twitter"></i>
+                                    <a class="twitter-icon " href="# ">
+                                        <img class=" " src="images/twitter.png " alt="... ">
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="pinterest-icon" href="#">
-                                        <i class="fa fa-pinterest"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="linkedin-icon" href="#">
-                                        <i class="fa fa-linkedin"></i>
+                                    <a class="linkedin-icon " href="# ">
+                                        <img class=" " src="images/linkedin.png " alt="... ">
                                     </a>
                                 </li>
                             </ul>
@@ -534,12 +533,12 @@
                     <div class="col-md-4">
                         <div class="block">
                             <h4>GET IN TOUCH</h4>
-                            <p><i class="fa  fa-map-marker"></i> <span>Movie web for rich people </span>Hoa Lac Hi-Tech Park, Km29, Thang Long Avenue, Thach That Dist. Hanoi City</p>
-                            <p> <i class="fa  fa-phone"></i> <span>Phone:</span> (+386) 40 123 456 </p>
+                            <p> <span>Movie web for rich people </span>Hoa Lac Hi-Tech Park, Km29, Thang Long Avenue, Thach That Dist. Hanoi City</p>
+                            <p> <span>Phone:</span> (+386) 40 123 456 </p>
 
-                            <p> <i class="fa  fa-mobile"></i> <span>Mobile:</span> (+386) 40 654 123 651</p>
+                            <p> <span>Mobile:</span> (+386) 40 654 123 651</p>
 
-                            <p class="mail"><i class="fa  fa-envelope"></i>Email: <span>info@sitename.com</span></p>
+                            <p class="mail">Email: <span>info@sitename.com</span></p>
                         </div>
                         <!-- End Of /.block -->
                     </div>

@@ -25,7 +25,7 @@ import model.Products;
  */
 @WebServlet(name = "ControllerProducts", urlPatterns = {"/ControllerProducts"})
 public class ControllerProducts extends HttpServlet {
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -36,10 +36,10 @@ public class ControllerProducts extends HttpServlet {
             if (service == null) {
                 Vector<Products> vector = dao.listAllProduct("SELECT TOP 8 * FROM Products\n"
                         + "order by Quantity DESC");
-
+                
                 Vector<Products> v2 = dao.listAllProduct("SELECT TOP 3 * FROM Products\n"
                         + "order by YEAR DESC");
-
+                
                 Vector<Products> v3 = dao.listAllProduct("SELECT TOP 3 * FROM Products\n"
                         + "where CategoryID=5");
                 request.setAttribute("v3", v3);
@@ -50,7 +50,7 @@ public class ControllerProducts extends HttpServlet {
             }
             if (service.equals("ALL")) {
                 Vector<Products> vector = dao.listAllProduct("SELECT * FROM Products");
-
+                
                 int n = dao.Page();
                 String number = request.getParameter("page");
                 Vector<Page> vector1 = dao.getByPage(Integer.parseInt(number));
@@ -75,11 +75,22 @@ public class ControllerProducts extends HttpServlet {
                 Vector<Products> vector = dao.SelectbyCate(cateid);
                 ResultSet rs = dao.getData("select * from Categories c\n"
                         + "join Products p on p.CategoryID=c.CategoryID\n"
-                        + "where c.CategoryID="+cateid);
+                        + "where c.CategoryID=" + cateid);
                 
                 request.setAttribute("rs", rs);
                 request.setAttribute("vector", vector);
                 RequestDispatcher dispath = request.getRequestDispatcher("Category.jsp");
+                dispath.forward(request, response);
+            }
+            
+            if (service.equals("Search")) {
+                String name = request.getParameter("name");
+                Vector<Products> vector = dao.SearchBYName(name);
+//                ResultSet rs = dao.getData("select * from Products\n"
+//                        + "where ProductName like '%" + name + "%'");
+                request.setAttribute("name", name);
+                request.setAttribute("vector", vector);
+                RequestDispatcher dispath = request.getRequestDispatcher("search.jsp");
                 dispath.forward(request, response);
             }
         } catch (Exception ex) {

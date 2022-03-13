@@ -174,13 +174,40 @@ public class DAOProducts extends ConnectDB {
         }
         return vector;
     }
- public Vector<Products> SelectbyCate(int cate ){
+    public Vector<Products> SelectbyCate(int cate ){
         Vector<Products> vector= new Vector<Products>();
         String sql="select * from Products where CategoryID="+cate;
         ResultSet rs =getData(sql);
         try {
             while(rs.next()){
                  int pId = rs.getInt("ProductID");
+                int subid = rs.getInt(2);
+                int cateid = rs.getInt(3);
+                String pname = rs.getString(4);
+                int year = rs.getInt(5);
+                float price = rs.getFloat(6);
+                String Imagine = rs.getString(7);
+                String Description = rs.getString(8);
+                int Quantity = rs.getInt(9);
+                int Discontinued = rs.getInt(9);
+
+                Products pro = new Products(pId, subid, cateid, pname, year, price, Imagine, Description, Quantity, Discontinued);
+                vector.add(pro);
+            }
+        } catch (SQLException ex) {
+           ex.printStackTrace();
+        }
+        return vector;
+    }
+    
+    public Vector<Products> SearchBYName(String name ){
+        Vector<Products> vector= new Vector<Products>();
+        String sql="select * from Products\n" +
+                    "where ProductName like '%"+name+"%'";
+        ResultSet rs =getData(sql);
+        try {
+            while(rs.next()){
+                int pId = rs.getInt("ProductID");
                 int subid = rs.getInt(2);
                 int cateid = rs.getInt(3);
                 String pname = rs.getString(4);

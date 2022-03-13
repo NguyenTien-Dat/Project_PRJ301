@@ -26,7 +26,7 @@ h6 {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 70px;
 }
 
 h2 {
@@ -147,12 +147,13 @@ header {
 /*	Search Box Start
     ==================================================*/
 
-.search-box input {
-    outline: none;
+.search-box .class {
+    background-color: #fff;
     border: none;
-    font-size: 12px;
-    padding: 5px;
-    height: 25px;
+    text-decoration: none;
+    color: white;
+    padding: 9px 15px;
+    cursor: pointer;
 }
 
 .search-box button {
@@ -585,7 +586,7 @@ header {
 }
 
 .products-heading h2 {
-    margin: 0px 0 20px;
+    margin: -60px 0px 20px 0px;
     border-top: 5px solid red;
 /*    display: inline-block;*/
     text-align: center;
