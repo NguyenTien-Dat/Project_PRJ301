@@ -205,7 +205,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav nav-main">
                     <li><a href="index.html">HOME</a></li>
-                    <li class="active"><a href="products.html">SHOP</a></li>
+                    <li class="active"><a href="ControllerProducts?do=ALL&page=1">SHOP</a></li>
                     <!-- <li><a href="blog.html">BLOG</a></li> -->
                     <!-- <li><a href="blog-single.html">ARTICLE</a></li> -->
                     <li class="dropdown">
@@ -414,7 +414,6 @@
                                     <a href="#" class="list-group-item"> Name </a>
                                     <a href="#" class="list-group-item"> Price </a>
                                     <a href="#" class="list-group-item"> Year </a>
-                                    <a href="#" class="list-group-item"> ID </a>
                                 </div>
                             </div>
                         <!-- <div class="block">

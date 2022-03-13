@@ -226,6 +226,87 @@ public class DAOProducts extends ConnectDB {
         }
         return vector;
     }
+    
+    public Vector<Products> SortBYName(){
+        Vector<Products> vector= new Vector<Products>();
+        String sql="  select * from Products\n" +
+                    "  order by ProductName";
+        ResultSet rs =getData(sql);
+        try {
+            while(rs.next()){
+                int pId = rs.getInt("ProductID");
+                int subid = rs.getInt(2);
+                int cateid = rs.getInt(3);
+                String pname = rs.getString(4);
+                int year = rs.getInt(5);
+                float price = rs.getFloat(6);
+                String Imagine = rs.getString(7);
+                String Description = rs.getString(8);
+                int Quantity = rs.getInt(9);
+                int Discontinued = rs.getInt(9);
+
+                Products pro = new Products(pId, subid, cateid, pname, year, price, Imagine, Description, Quantity, Discontinued);
+                vector.add(pro);
+            }
+        } catch (SQLException ex) {
+           ex.printStackTrace();
+        }
+        return vector;
+    }
+    
+    public Vector<Products> SortBYPrice(){
+        Vector<Products> vector= new Vector<Products>();
+        String sql="select * from Products\n" +
+                    "  order by Price";
+        ResultSet rs =getData(sql);
+        try {
+            while(rs.next()){
+                int pId = rs.getInt("ProductID");
+                int subid = rs.getInt(2);
+                int cateid = rs.getInt(3);
+                String name = rs.getString(4);
+                int year = rs.getInt(5);
+                float price = rs.getFloat(6);
+                String Imagine = rs.getString(7);
+                String Description = rs.getString(8);
+                int Quantity = rs.getInt(9);
+                int Discontinued = rs.getInt(9);
+
+                Products pro = new Products(pId, subid, cateid, name, year, price, Imagine, Description, Quantity, Discontinued);
+                vector.add(pro);
+            }
+        } catch (SQLException ex) {
+           ex.printStackTrace();
+        }
+        return vector;
+    }
+    
+    public Vector<Products> SortBYYear(){
+        Vector<Products> vector= new Vector<Products>();
+        String sql="select * from Products\n" +
+                    "  order by [YEAR] desc";
+        ResultSet rs =getData(sql);
+        try {
+            while(rs.next()){
+                int pId = rs.getInt("ProductID");
+                int subid = rs.getInt(2);
+                int cateid = rs.getInt(3);
+                String name = rs.getString(4);
+                int year = rs.getInt(5);
+                float price = rs.getFloat(6);
+                String Imagine = rs.getString(7);
+                String Description = rs.getString(8);
+                int Quantity = rs.getInt(9);
+                int Discontinued = rs.getInt(9);
+
+                Products pro = new Products(pId, subid, cateid, name, year, price, Imagine, Description, Quantity, Discontinued);
+                vector.add(pro);
+            }
+        } catch (SQLException ex) {
+           ex.printStackTrace();
+        }
+        return vector;
+    }
 
     public static void main(String[] args) {
         DAOProducts dao = new DAOProducts();

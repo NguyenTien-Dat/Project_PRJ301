@@ -418,6 +418,7 @@
                                     <a href="#" class="list-group-item"> Name </a>
                                     <a href="#" class="list-group-item"> Price </a>
                                     <a href="#" class="list-group-item"> Year </a>
+                                    <a href="#" class="list-group-item"> ID </a>
                                 </div>
                             </div>
                             <div class="block">
