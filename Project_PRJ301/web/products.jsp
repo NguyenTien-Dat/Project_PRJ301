@@ -415,9 +415,9 @@
                             <div class="block">
                                 <h4>Sort by:</h4>
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item"> Name </a>
-                                    <a href="#" class="list-group-item"> Price </a>
-                                    <a href="#" class="list-group-item"> Year </a>
+                                    <a href="ControllerProducts?do=sortName" class="list-group-item"> Name </a>
+                                    <a href="ControllerProducts?do=sortPrice" class="list-group-item"> Price </a>
+                                    <a href="ControllerProducts?do=sortYear" class="list-group-item"> Year </a>
                                 </div>
                             </div>
                             <div class="block">

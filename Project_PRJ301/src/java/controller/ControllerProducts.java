@@ -93,6 +93,27 @@ public class ControllerProducts extends HttpServlet {
                 RequestDispatcher dispath = request.getRequestDispatcher("search.jsp");
                 dispath.forward(request, response);
             }
+            
+            if (service.equals("sortPrice")) {
+                Vector<Products> vector = dao.SortBYPrice();
+                request.setAttribute("vector", vector);
+                RequestDispatcher dispath = request.getRequestDispatcher("sort.jsp");
+                dispath.forward(request, response);
+            }
+            
+            if (service.equals("sortName")) {
+                Vector<Products> vector = dao.SortBYName();
+                request.setAttribute("vector", vector);
+                RequestDispatcher dispath = request.getRequestDispatcher("sort.jsp");
+                dispath.forward(request, response);
+            }
+            
+            if (service.equals("sortYear")) {
+                Vector<Products> vector = dao.SortBYYear();
+                request.setAttribute("vector", vector);
+                RequestDispatcher dispath = request.getRequestDispatcher("sort.jsp");
+                dispath.forward(request, response);
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
