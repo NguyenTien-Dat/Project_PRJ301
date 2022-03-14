@@ -88,11 +88,11 @@
                             <div class="input-group">
                                 <form action="ControllerProducts" method="post">
                                     <table> 
-                                            <tr>
-                                                <input type="hidden" name="do" value="Search">
-                                                <td><input placeholder="Search Here" type="text" name="name" class="form-control"></td>
-                                                <td><button class="class" type="submit" value="search"></td>
-                                            </tr>
+                                        <tr>
+                                        <input type="hidden" name="do" value="Search">
+                                        <td><input placeholder="Search Here" type="text" name="name" class="form-control"></td>
+                                        <td><button class="class" type="submit" value="search"></td>
+                                        </tr>
                                         </div>
                                     </table>
                                 </form>
@@ -176,7 +176,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="#">
+                        <a href="ControllerProducts">
                             <img src="images/logo.jpg" alt="logo">
                         </a>
                     </div>
@@ -210,19 +210,19 @@
                     <ul class="nav navbar-nav nav-main">
                         <li><a href="ControllerProducts">HOME</a></li>
                         <li class="active"><a href="ControllerProducts?do=ALL&page=1">SHOP</a></li>
-<!--                        <li><a href="blog-single.jsp">ARTICLE</a></li>-->
+                        <!--                        <li><a href="blog-single.jsp">ARTICLE</a></li>-->
                         <li class="dropdown">
                             <a href="#">
                                 MOVIE GENRE
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Romantic</a></li>
-                                <li><a href="#">Comedy</a></li>
-                                <li><a href="#">Horror</a></li>
-                                <li><a href="#">Science Fiction</a></li>
-                                <li><a href="#">Adventure</a></li>
+                                <li><a href="ControllerProducts?do=Category&cate=1">Action</a></li>
+                                <li><a href="ControllerProducts?do=Category&cate=2">Romantic</a></li>
+                                <li><a href="ControllerProducts?do=Category&cate=3">Comedy</a></li>
+                                <li><a href="ControllerProducts?do=Category&cate=4">Horror</a></li>
+                                <li><a href="ControllerProducts?do=Category&cate=5">Science Fiction</a></li>
+                                <li><a href="ControllerProducts?do=Category&cate=6">Adventure</a></li>
                             </ul>
                         </li>
                         <!-- End of /.dropdown -->
@@ -247,14 +247,14 @@
                         <h1>Shop</h1>
                         <p>A Bunch Of Products</p>
                     </div>
-<!--                    <div class="col-md-4">
-                        <h1>Ghi gì ở đây không ô</h1>
-                        <p>A Bunch Of Products</p>
-                    </div>-->
+                    <!--                    <div class="col-md-4">
+                                            <h1>Ghi gì ở đây không ô</h1>
+                                            <p>A Bunch Of Products</p>
+                                        </div>-->
                     <!-- End of /.col-md-4 -->
                     <div class="col-md-8 hidden-xs">
                         <ol class="breadcrumb pull-right">
-                            <li><a href="index.jsp">Home</a></li>
+                            <li><a href="ControllerProducts">Home</a></li>
                             <li class="active">Shop</li>
                         </ol>
                     </div>
@@ -276,7 +276,7 @@
                 <div class="row">
                     <div class="col-md-9">
                         <div class="products-heading">
-                            <h2>ALL PRODUCTS</h2>
+<!--                            <h2>ALL PRODUCTS</h2>-->
                         </div>
                         <!-- End of /.Products-heading -->
                         <div class="product-grid">
@@ -284,7 +284,7 @@
                                 <%for (Page v : v2) {%>
                                 <li>
                                     <div class="products">
-                                        <a href="#">
+                                        <a>
                                             <img src="<%=v.getImagine()%>" alt="">
                                         </a>
                                         <a href="#">
@@ -299,87 +299,6 @@
                                     <!-- End of /.products -->
                                 </li>
                                 <%}%>
-                                <!--                                <li>
-                                                                    <div class="products">
-                                                                        <a href="#">
-                                                                            <img src="images/product-image-8.jpg" alt="">
-                                                                        </a>
-                                                                        <a href="#">
-                                                                            <h4>Amazing Italian Sauces</h4>
-                                                                        </a>
-                                                                        <p class="price">From: £69.99</p>
-                                                                        <div>
-                                                                            <a class="view-link shutter" href="#">
-                                                                                <i class="fa fa-plus-circle"></i>Add To Cart</a>
-                                                                        </div>
-                                                                    </div>
-                                                                     End of /.products 
-                                                                </li>
-                                                                <li>
-                                                                    <div class="products">
-                                                                        <a href="#">
-                                                                            <img src="images/product-image-8.jpg" alt="">
-                                                                        </a>
-                                                                        <a href="#">
-                                                                            <h4>Amazing Italian Sauces</h4>
-                                                                        </a>
-                                                                        <p class="price">From: £69.99</p>
-                                                                        <div>
-                                                                            <a class="view-link shutter" href="#">
-                                                                                <i class="fa fa-plus-circle"></i>Add To Cart</a>
-                                                                        </div>
-                                                                    </div>
-                                                                     End of /.products 
-                                                                </li>
-                                                                <li>
-                                                                    <div class="products">
-                                                                        <a href="#">
-                                                                            <img src="images/product-image-8.jpg" alt="">
-                                                                        </a>
-                                                                        <a href="#">
-                                                                            <h4>Amazing Italian Sauces</h4>
-                                                                        </a>
-                                                                        <p class="price">From: £69.99</p>
-                                                                        <div>
-                                                                            <a class="view-link shutter" href="#">
-                                                                                <i class="fa fa-plus-circle"></i>Add To Cart</a>
-                                                                        </div>
-                                                                    </div>
-                                                                     End of /.products 
-                                                                </li>
-                                                                <li>
-                                                                    <div class="products">
-                                                                        <a href="#">
-                                                                            <img src="images/product-image-8.jpg" alt="">
-                                                                        </a>
-                                                                        <a href="#">
-                                                                            <h4>Amazing Italian Sauces</h4>
-                                                                        </a>
-                                                                        <p class="price">From: £69.99</p>
-                                                                        <div>
-                                                                            <a class="view-link shutter" href="#">
-                                                                                <i class="fa fa-plus-circle"></i>Add To Cart</a>
-                                                                        </div>
-                                                                    </div>
-                                                                     End of /.products 
-                                                                </li>
-                                                                <li>
-                                                                    <div class="products">
-                                                                        <a href="#">
-                                                                            <img src="images/product-image-8.jpg" alt="">
-                                                                        </a>
-                                                                        <a href="#">
-                                                                            <h4>Amazing Italian Sauces</h4>
-                                                                        </a>
-                                                                        <p class="price">From: £69.99</p>
-                                                                        <div>
-                                                                            <a class="view-link shutter" href="#">
-                                                                                <i class="fa fa-plus-circle"></i>Add To Cart</a>
-                                                                        </div>
-                                                                    </div>
-                                                                     End of /.products 
-                                                                </li>-->
-                                <!--  ... -->
                             </ul>
                         </div>
                         <!-- End of /.products-grid -->
@@ -392,7 +311,7 @@
                                 <!--<li class="active"><a href="#">1<span class="sr-only"></span></a></li>-->
                                 <c:forEach begin="1" end="${n}" var="c" >
                                     <li><a href="ControllerProducts?do=ALL&page=${c}">${c}</a></li>
-                                </c:forEach>
+                                    </c:forEach>
                                 <li><a href="#">»</a></li>
                             </ul>
                             <!-- End of /.pagination -->
@@ -404,16 +323,29 @@
                             <div class="block">
                                 <h4>Genre:</h4>
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item"> Action Movie </a>
-                                    <a href="#" class="list-group-item"> Romantic Movie </a>
-                                    <a href="#" class="list-group-item"> Comedy Movie </a>
-                                    <a href="#" class="list-group-item"> Horror Movie </a>
-                                    <a href="#" class="list-group-item"> Science Fiction Movie </a>
-                                    <a href="#" class="list-group-item"> Adventure Movie </a>
+                                    <a href="ControllerProducts?do=Category&cate=1" class="list-group-item"> Action Movie </a>
+                                    <a href="ControllerProducts?do=Category&cate=2" class="list-group-item"> Romantic Movie </a>
+                                    <a href="ControllerProducts?do=Category&cate=3" class="list-group-item"> Comedy Movie </a>
+                                    <a href="ControllerProducts?do=Category&cate=4" class="list-group-item"> Horror Movie </a>
+                                    <a href="ControllerProducts?do=Category&cate=5" class="list-group-item"> Science Fiction Movie </a>
+                                    <a href="ControllerProducts?do=Category&cate=6" class="list-group-item"> Adventure Movie </a>
                                 </div>
                             </div>
                             <div class="block">
                                 <h4>Sort by:</h4>
+                                <form action="ControllerProducts?do=Sort" method="post">
+                                    <table>
+                                        <tr>
+                                            <td>From</td><td><input type="number" name="price1" value="0"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>To</td><td><input type="number" name="price2" value="0"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td><td><input type="submit" value="Find"/></td>
+                                        </tr>
+                                    </table>
+                                </form>
                                 <div class="list-group">
                                     <a href="ControllerProducts?do=sortName" class="list-group-item"> Name </a>
                                     <a href="ControllerProducts?do=sortPrice" class="list-group-item"> Price </a>

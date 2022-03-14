@@ -350,7 +350,7 @@
                                 <h4><%=pro.getProductName()%></h4>
                             </a>
                             <p class="price "><%=pro.getPrice()%></p>
-                            <a class="view-link shutter " href="# ">
+                            <a class="view-link shutter " href="ControllerCart?do=showCart&id=<%=pro.getProductID() %>">
                                 <i class="fa fa-plus-circle "></i>Add To Cart</a>
                         </div>
                     </div>
@@ -436,12 +436,12 @@
                     <div class="col-md-4 ">
                         <div class="block ">
                             <h4>GET IN TOUCH</h4>
-                            <p><i class="fa fa-map-marker "></i> <span>Movie web for rich people </span>Hoa Lac Hi-Tech Park, Km29, Thang Long Avenue, Thach That Dist. Hanoi City</p>
-                            <p> <i class="fa fa-phone "></i> <span>Phone:</span> (+386) 40 123 456 </p>
+                            <p><span>Movie web for rich people </span>Hoa Lac Hi-Tech Park, Km29, Thang Long Avenue, Thach That Dist. Hanoi City</p>
+                            <p><span>Phone:</span> (+386) 40 123 456 </p>
 
-                            <p> <i class="fa fa-mobile "></i> <span>Mobile:</span> (+386) 40 654 123 651</p>
+                            <p><span>Mobile:</span> (+386) 40 654 123 651</p>
 
-                            <p class="mail "><i class="fa fa-envelope "></i>Email: <span>info@sitename.com</span></p>
+                            <p class="mail ">Email: <span>info@sitename.com</span></p>
                         </div>
                         <!-- End Of /.block -->
                     </div>

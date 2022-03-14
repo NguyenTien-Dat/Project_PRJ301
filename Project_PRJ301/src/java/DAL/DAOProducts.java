@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 import model.Page;
+import model.ProductCart;
 import model.Products;
 
 /**
@@ -200,6 +201,24 @@ public class DAOProducts extends ConnectDB {
         return vector;
     }
     
+    public ProductCart CartbyID(int id) {
+        ProductCart cart = new ProductCart();
+        String sql = "select ProductID, [Imagine] ,ProductName,Price from Products where ProductID=" + id;
+        ResultSet rs = getData(sql);
+        try {
+            while (rs.next()) {
+                int idC = rs.getInt(1);
+                String ima = rs.getString(2);
+                String name = rs.getString(3);
+                Double price = rs.getDouble(4);
+                cart = new ProductCart(idC, ima, name, price, 0, 0);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return cart;
+    }
+    
     public Vector<Products> SearchBYName(String name ){
         Vector<Products> vector= new Vector<Products>();
         String sql="select * from Products\n" +
@@ -300,6 +319,34 @@ public class DAOProducts extends ConnectDB {
                 int Discontinued = rs.getInt(9);
 
                 Products pro = new Products(pId, subid, cateid, name, year, price, Imagine, Description, Quantity, Discontinued);
+                vector.add(pro);
+            }
+        } catch (SQLException ex) {
+           ex.printStackTrace();
+        }
+        return vector;
+    }
+    
+    public Vector<Products> SortBetweenPrice(String price1, String price2 ){
+        Vector<Products> vector= new Vector<Products>();
+        String sql="select * from Products\n" +
+                    "where Price between "+price1+" and "+price2+"\n" +
+                    "order by Price";
+        ResultSet rs =getData(sql);
+        try {
+            while(rs.next()){
+                int pId = rs.getInt("ProductID");
+                int subid = rs.getInt(2);
+                int cateid = rs.getInt(3);
+                String pname = rs.getString(4);
+                int year = rs.getInt(5);
+                float price = rs.getFloat(6);
+                String Imagine = rs.getString(7);
+                String Description = rs.getString(8);
+                int Quantity = rs.getInt(9);
+                int Discontinued = rs.getInt(9);
+
+                Products pro = new Products(pId, subid, cateid, pname, year, price, Imagine, Description, Quantity, Discontinued);
                 vector.add(pro);
             }
         } catch (SQLException ex) {

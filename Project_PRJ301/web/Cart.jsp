@@ -1,14 +1,19 @@
 <%-- 
-    Document   : Category
-    Created on : Mar 11, 2022, 8:48:53 PM
+    Document   : Cart
+    Created on : Mar 15, 2022, 12:54:08 AM
     Author     : MSI_PRO
 --%>
 
-<%@page import="java.sql.ResultSet"%>
-<%@page import="model.Categories"%>
-<%@page import="java.util.Vector"%>
-<%@page import="model.Products"%>
+<%-- 
+    Document   : Cart
+    Created on : Mar 6, 2022, 9:43:02 PM
+    Author     : admin
+--%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="model.ProductCart"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x"%>
 <!doctype html>
 <html lang="en">
 
@@ -42,30 +47,40 @@
     </head>
 
     <body>
-        <% Vector<Products> vector = (Vector<Products>) request.getAttribute("vector");
-            Vector<Categories> v1 = (Vector<Categories>) request.getAttribute("v1");
-            ResultSet rs = (ResultSet) request.getAttribute("rs");
-        %>
+
 
         <!-- TOP HEADER Start
         ================================================== -->
 
         <section id="top">
             <div class="container">
-                <div class="row">
+               <div class="row">
                     <div class="col-md-7">
-                        <p class="contact-action"><i class="fa fa-phone-square"></i>IN CASE OF ANY QUESTIONS, CALL THIS NUMBER: <strong>+565 975 658</strong></p>
+                        <p class="contact-action">Hoàng Trọng Hiếu - HE151404  <strong>+84 9046xxxx</strong></p>
+                        <c:if test="${sessionScope.account!=null}">
+                                 <p style="text-align: center; margin-left: 250px" >  Welcome ${sessionScope.account.getCustomerName()}</p>
+                        </c:if>
                     </div>
                     <div class="col-md-3 clearfix">
                         <ul class="login-cart">
+                            <c:if test="${sessionScope.account==null}">
                             <li>
                                 <a data-toggle="modal" data-target="#myModal" href="#">
                                     <i class="fa fa-user"></i> Login
                                 </a>
                             </li>
+                            </c:if>
+                            <c:if test="${sessionScope.account!=null}">
+                            <li>
+                                <a href="ControllerAccount?do=logout">
+                                    <i class="fa fa-user"></i> Logout
+                                </a>
+                            </li>
+                            </c:if>
                             <li>
                                 <div class="cart dropdown">
-                                    <a data-toggle="dropdown" href="#"><i class="fa fa-shopping-cart"></i>Cart(1)</a>
+                                    <a href="Cart.jsp">
+                                        <i class="fa fa-shopping-cart"></i>Cart</a>
                                     <div class="dropdown-menu dropup">
                                         <span class="caret"></span>
                                         <ul class="media-list">
@@ -87,13 +102,13 @@
                     <div class="col-md-2">
                         <div class="search-box">
                             <div class="input-group">
-                                <form action="ControllerProducts" method="post">
+                               <form action="ControllerProducts" method="post">
                                     <table> 
-                                        <tr>
-                                        <input type="hidden" name="do" value="Search">
-                                        <td><input placeholder="Search Here" type="text" name="name" class="form-control"></td>
-                                        <td><button class="class" type="submit" value="search"></td>
-                                        </tr>
+                                            <tr>
+                                                <input type="hidden" name="do" value="Search">
+                                                <td><input placeholder="Search Here" type="text" name="name" class="form-control"></td>
+                                                <td><button class="class" type="submit" value="search"></td>
+                                            </tr>
                                         </div>
                                     </table>
                                 </form>
@@ -120,19 +135,23 @@
                         </div>
                         <div class="modal-body clearfix">
 
-                            <form action="#" method="post" id="create-account_form" class="std">
+                            <form action="ControllerAccount" method="get" id="login_form" class="std">
                                 <fieldset>
-                                    <h3>Create your account</h3>
+                                    <h3>Already registered?</h3>
                                     <div class="form_content clearfix">
-                                        <h4>Enter your e-mail address to create an account.</h4>
                                         <p class="text">
-                                            <label for="email_create">E-mail address</label>
-                                            <span>
-                                                <input placeholder="E-mail address"  type="text" id="email_create" name="email_create" value="" class="account_input">
-                                            </span>
+                                            <label for="email">E-mail address</label>
+                                            <span><input placeholder="User" type="text" id="email" name="user" value="" class="account_input"></span>
+                                        </p>
+                                        <p class="text">
+                                            <label for="passwd">Password</label>
+                                            <span><input placeholder="Password" type="password" id="passwd" name="pass" value="" class="account_input"></span>
+                                        </p>
+                                        <p class="lost_password">
+                                            <a href="#popab-password-reset" class="popab-password-link">Forgot your password?</a>
                                         </p>
                                         <p class="submit">
-                                            <button class="btn btn-primary">Create Your Account</button>
+                                            <button class="btn btn-success">Log in</button>
                                         </p>
                                     </div>
                                 </fieldset>
@@ -177,7 +196,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="ControllerProducts">
+                        <a href="#">
                             <img src="images/logo.jpg" alt="logo">
                         </a>
                     </div>
@@ -209,10 +228,9 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav nav-main">
-                        <li><a href="ControllerProducts">HOME</a></li>
+                        <li class="active"><a href="ControllerProducts">HOME</a></li>
                         <li><a href="ControllerProducts?do=ALL&page=1">SHOP</a></li>
-                        <!-- <li><a href="blog.html">BLOG</a></li> -->
-                        <!-- <li><a href="blog-single.html">ARTICLE</a></li> -->
+                        <!--<li><a href="blog-single.jsp">ARTICLE</a></li>-->
                         <li class="dropdown">
                             <a href="#">
                                 MOVIE GENRE
@@ -241,21 +259,21 @@
 
 
 
+        <!-- Breadcrumbs Start
+        ================================================== -->
 
         <section id="topic-header">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <%if (rs.next()) {%>
-                        <h1><%=rs.getString(2)%> MOVIES</h1>
-                        <p>The latest <%=rs.getString(2)%> Movie genre in 2022, continuously updated with new movies of the <%=rs.getString(2)%> Movie genre, the movies are selected and of high quality.</p>
-                        <%}%>
+                        <h1>YOUR CART</h1>
+                        <p>Products</p>
                     </div>
                     <!-- End of /.col-md-4 -->
                     <div class="col-md-8 hidden-xs">
                         <ol class="breadcrumb pull-right">
-                            <li><a href="ControllerProducts">Home</a></li>
-                            <li class="active">Movie Genre</li>
+                            <li><a href="#">Home</a></li>
+                            <li class="active">Blog</li>
                         </ol>
                     </div>
                     <!-- End of /.col-md-8 -->
@@ -266,137 +284,100 @@
         </section>
         <!-- End of /#Topic-header -->
 
+        <!--================================================== -->
 
-
-        <!-- PRODUCTS Start
-        ================================================== -->
-
-        <section id="shop">
+        <!-- cart -->
+        <div class="cart-section mt-150 mb-150">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9">
-                        <div class="products-heading">
-                            <!--                        <h2>PRODUCTS</h2>-->
+                    <div class="col-lg-10 col-md-12">
+                        <div class="cart-table-wrap" >
+                            <table class="cart-table" border="solid">
+                                <thead class="cart-table-head" style="background-color:gray;">
+                                    <tr class="table-head-row">
+                                        <th class="product-remove" ></th>
+                                        <th class="product-image" style="padding-right: 50px; padding-left: 50px; color: white;">Product Image</th>
+                                        <th class="product-name" style="padding-right: 50px;padding-left: 35px;color: white;">Name</th>
+                                        <th class="product-price" style="padding-right: 30px;padding-left: 25px;color: white;">Price</th>
+                                        <th class="product-quantity" style="padding-right: 50px;padding-left: 50px;color: white;">Quantity</th>
+                                         <th class="product-total" style="margin-left: 20px;color: white;">Delete</th> 
+                                    </tr>
+                                </thead> 
+                                <%
+                                    double total=0;
+                                    java.util.Enumeration em = session.getAttributeNames();
+                                    while (em.hasMoreElements()) {
+                                       String key = em.nextElement().toString();
+                                       if(key!="account"){
+                                       ProductCart pro=(ProductCart) session.getAttribute(key);
+                                        total += pro.getQuantity() * pro.getUnitPrice();
+                                %>
+                                <tbody>
+                                    <tr class="table-body-row">
+                                        <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
+                                        <th class="product-image" style="padding-right: 60px; "><img style="max-width: 200px;" src="<%=pro.getImage() %>" alt=""></td>
+                                        <th class="product-name" style="padding-right: 60px;padding-left: 20px;"><%=pro.getProductName() %> </td>
+                                        <th class="product-price" style="padding-right: 30px;padding-left: 20px;">$<%=pro.getUnitPrice()%>  </td>
+                                        <td class="product-quantity"><input type="number" placeholder="<%=pro.getQuantity() %>"></td>
+                                        <th class="product-total" style="margin-left: 20px;"><a href="">Delete</th> 
+                                    </tr>
+                                    
+                                    <%} }%>
+<!--                                    <tr class="table-body-row">
+                                        <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
+                                        <td class="product-image"><img src="assets/img/products/product-img-2.jpg" alt=""></td>
+                                        <td class="product-name">Berry</td>
+                                        <td class="product-price">$70</td>
+                                        <td class="product-quantity"><input type="number" placeholder="0"></td>
+                                    </tr>
+                                    <tr class="table-body-row">
+                                        <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
+                                        <td class="product-image"><img src="assets/img/products/product-img-3.jpg" alt=""></td>
+                                        <td class="product-name">Lemon</td>
+                                        <td class="product-price">$35</td>
+                                        <td class="product-quantity"><input type="number" placeholder="0"></td>-->
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <!-- End of /.Products-heading -->
-                        <div class="product-grid">
-                            <ul> 
-                                <%for (Products cate : vector) {%>
-                                <li>
-                                    <div class="products">
-                                        <a href="#">
-                                            <img src="<%=cate.getImagine()%>" alt="">
-                                        </a>
-                                        <a href="#">
-                                            <h4><%=cate.getProductName()%></h4>
-                                        </a>
-                                        <p class="price">£<%=cate.getPrice()%></p>
-                                        <div>
-                                            <a class="view-link shutter" href="#">
-                                                <i class="fa fa-plus-circle"></i>Add To Cart</a>
-                                        </div>
-                                    </div>
-                                    <!-- End of /.products -->
-                                </li>
-                                <%}%>
-                            </ul>
-                        </div>
-                        <!-- End of /.products-grid -->
-
-                        <!-- Pagination -->
-
-                        <!--                    <div class="pagination-bottom">
-                                                <ul class="pagination">
-                                                    <li class="disabled"><a href="#">&laquo;</a></li>
-                                                    <li class="active"><a href="#">1 <span class="sr-only"></span></a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li><a href="#">4</a></li>
-                                                    <li><a href="#">»</a></li>
-                                                </ul>
-                                                 End of /.pagination 
-                                            </div>-->
                     </div>
-                    <!-- End of /.col-md-9 -->
-                    <div class="col-md-3">
-                        <div class="blog-sidebar">
-                            <div class="block">
-                                <h4>Movie Genre</h4>
-                                <div class="list-group">
-                                    <a href="ControllerProducts?do=Category&cate=1" class="list-group-item">Action Movie</a>
-                                    <a href="ControllerProducts?do=Category&cate=2" class="list-group-item">Romantic movie</a>
-                                    <a href="ControllerProducts?do=Category&cate=3" class="list-group-item">Comedy Movie</a>
-                                    <a href="ControllerProducts?do=Category&cate=4" class="list-group-item">Horror Movie</a>
-                                    <a href="ControllerProducts?do=Category&cate=5" class="list-group-item">Science Fiction Movie</a>
-                                    <a href="ControllerProducts?do=Category&cate=6" class="list-group-item">Adventure Movie</a>
-                                </div>
-                            </div>
 
-                            <div class="block">
-                                <h4>Latest Movie Items</h4>
-                                <ul class="media-list">
-                                    <li class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object" src="images/post-img.png" alt="...">
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading">Lamb leg roast
-                                                <p>Lorem ipsum dolor sit amet.</p></a>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object" src="images/post-img-2.png" alt="...">
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading"> Lamingtons
-                                                <p>Lorem ipsum dolor.</p></a>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object" src="images/post-img-3.png" alt="...">
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading">
-                                                Anzac Salad
-                                                <p>Lorem ipsum dolor sit.</p>
-
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="block">
-                                <h4>Movie Tag</h4>
-                                <div class="tag-link">
-                                    <a href="">ACTION</a>
-                                    <a href="">CHRISTMAS</a>
-                                    <a href="">NEW MOVIE</a>
-                                    <a href="">ANIMATION</a>
-                                    <a href="">SHOPPING</a>
-                                    <a href="">HOTTEST</a>
-                                </div>
+                    <div class="col-lg-2">
+                        <div class="total-section">
+                            <table class="total-table">
+                                <thead class="total-table-head">
+                                    <tr class="table-total-row">
+                                        <th>Total</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="total-data">
+                                        <td><strong>Total: </strong></td>
+                                        <td><%=total%></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="cart-buttons">
+                                <a href="cart.html" class="boxed-btn">Update Cart</a>
+                                <a href="checkout.html" class="boxed-btn black">Check Out</a>
                             </div>
                         </div>
-                        <!-- End of /.col-md-3 -->
 
+                        <div class="coupon-section">
+                            <h3>Apply Coupon</h3>
+                            <div class="coupon-form-wrap">
+                                <form action="index.html">
+                                    <p><input type="text" placeholder="Coupon"></p>
+                                    <p style="padding-bottom: 100px;"><input type="submit" value="Apply"></p>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <!-- End of /.row -->
                 </div>
-                <!-- End of /.container -->
-        </section>
-        <!-- End of Section -->
-
-
-
-
-
-
-
-
-
+            </div>
+        </div>
+        <!-- end cart -->
 
 
         <!-- FOOTER Start
@@ -444,12 +425,12 @@
                     <div class="col-md-4">
                         <div class="block">
                             <h4>GET IN TOUCH</h4>
-                            <p><span>Movie web for rich people </span>Hoa Lac Hi-Tech Park, Km29, Thang Long Avenue, Thach That Dist. Hanoi City</p>
-                            <p><span>Phone:</span> (+386) 40 123 456 </p>
+                            <p><i class="fa  fa-map-marker"></i> <span>Movie web for rich people </span>Hoa Lac Hi-Tech Park, Km29, Thang Long Avenue, Thach That Dist. Hanoi City</p>
+                            <p> <i class="fa  fa-phone"></i> <span>Phone:</span> (+386) 40 123 456 </p>
 
-                            <p> <span>Mobile:</span> (+386) 40 654 123 651</p>
+                            <p> <i class="fa  fa-mobile"></i> <span>Mobile:</span> (+386) 40 654 123 651</p>
 
-                            <p class="mail">Email: <span>info@sitename.com</span></p>
+                            <p class="mail"><i class="fa  fa-envelope"></i>Email: <span>info@sitename.com</span></p>
                         </div>
                         <!-- End Of /.block -->
                     </div>
@@ -514,7 +495,7 @@
                                     </a>
                                 </li>
                             </ul>
-                            <p class="copyright-text pull-right">Project Designed by Hoàng Trọng Hiếu<a href="http://www.themexpert.com">Themexpert</a> All Rights Reserved</p>
+                            <p class="copyright-text pull-right">Project Designed by Hoang Trong Hieu<a href="http://www.themexpert.com">Themexpert</a> All Rights Reserved</p>
                         </div>
                         <!-- End Of /.col-md-12 -->
                     </div>
@@ -530,3 +511,4 @@
     </body>
 
 </html>
+

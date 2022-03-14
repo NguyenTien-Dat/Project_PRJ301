@@ -172,7 +172,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="#">
+                    <a href="ControllerProducts">
                         <img src="images/logo.jpg" alt="logo">
                     </a>
                 </div>
@@ -204,8 +204,8 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav nav-main">
-                    <li><a href="index.html">HOME</a></li>
-                    <li class="active"><a href="ControllerProducts?do=ALL&page=1">SHOP</a></li>
+                    <li><a href="ControllerProducts">HOME</a></li>
+                    <li ><a href="ControllerProducts?do=ALL&page=1">SHOP</a></li>
                     <!-- <li><a href="blog.html">BLOG</a></li> -->
                     <!-- <li><a href="blog-single.html">ARTICLE</a></li> -->
                     <li class="dropdown">
@@ -214,12 +214,12 @@
 							<span class="caret"></span>
 						</a>
                         <ul class="dropdown-menu">
-                            <li><a href="action.html">Action</a></li>
-                            <li><a href="#">Romantic</a></li>
-                            <li><a href="#">Comedy</a></li>
-                            <li><a href="#">Horror</a></li>
-                            <li><a href="#">Science Fiction</a></li>
-                            <li><a href="#">Adventure</a></li>
+                            <li><a href="ControllerProducts?do=Category&cate=1">Action</a></li>
+                            <li><a href="ControllerProducts?do=Category&cate=2">Romantic</a></li>
+                            <li><a href="ControllerProducts?do=Category&cate=3">Comedy</a></li>
+                            <li><a href="ControllerProducts?do=Category&cate=4">Horror</a></li>
+                            <li><a href="ControllerProducts?do=Category&cate=5">Science Fiction</a></li>
+                            <li><a href="ControllerProducts?do=Category&cate=6">Adventure</a></li>
                         </ul>
                     </li>
                     <!-- End of /.dropdown -->
@@ -235,19 +235,21 @@
     <!-- End of /.nav -->
 
 
-
+    <% Vector<Products> vector =(Vector<Products>)request.getAttribute("vector");
+        String name = (String)request.getParameter("name");
+    %>
 
     <section id="topic-header">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <h1>Search result</h1>
+                <div class="col-md-6">
+                    <h1>Search Result for "<%=name%>"</h1>
                     <!-- <p>The latest Action Movie genre in 2022, continuously updated with new movies of the Action Movie genre, the movies are selected and of high quality.</p> -->
                 </div>
                 <!-- End of /.col-md-4 -->
-                <div class="col-md-8 hidden-xs">
+                <div class="col-md-6 hidden-xs">
                     <ol class="breadcrumb pull-right">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="ControllerProducts">Home</a></li>
                         <li class="active">Search Result</li>
                     </ol>
                 </div>
@@ -263,15 +265,13 @@
 
     <!-- PRODUCTS Start
     ================================================== -->
-    <% Vector<Products> vector =(Vector<Products>)request.getAttribute("vector");
-        String name = (String)request.getParameter("name");
-    %>
+    
     <section id="shop">
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
                     <div class="products-heading">
-                        <h2>Search Result for = "<%=name%>"</h2>
+<!--                        <h2></h2>-->
                     </div>
                     <!-- End of /.Products-heading -->
                     <div class="product-grid">
@@ -295,94 +295,14 @@
                                 <!-- End of /.products -->
                             </li>
                             <% } %>
-<!--                            <li>
-                                <div class="products">
-                                    <a href="#">
-                                        <img src="images/product-image-8.jpg" alt="">
-                                    </a>
-                                    <a href="#">
-                                        <h4>Amazing Italian Sauces</h4>
-                                    </a>
-                                    <p class="price">From: £69.99</p>
-                                    <div>
-                                        <a class="view-link shutter" href="#">
-                                            <i class="fa fa-plus-circle"></i>Add To Cart</a>
-                                    </div>
-                                </div>
-                                 End of /.products 
-                            </li>
-                            <li>
-                                <div class="products">
-                                    <a href="#">
-                                        <img src="images/product-image-8.jpg" alt="">
-                                    </a>
-                                    <a href="#">
-                                        <h4>Amazing Italian Sauces</h4>
-                                    </a>
-                                    <p class="price">From: £69.99</p>
-                                    <div>
-                                        <a class="view-link shutter" href="#">
-                                            <i class="fa fa-plus-circle"></i>Add To Cart</a>
-                                    </div>
-                                </div>
-                                 End of /.products 
-                            </li>
-                            <li>
-                                <div class="products">
-                                    <a href="#">
-                                        <img src="images/product-image-8.jpg" alt="">
-                                    </a>
-                                    <a href="#">
-                                        <h4>Amazing Italian Sauces</h4>
-                                    </a>
-                                    <p class="price">From: £69.99</p>
-                                    <div>
-                                        <a class="view-link shutter" href="#">
-                                            <i class="fa fa-plus-circle"></i>Add To Cart</a>
-                                    </div>
-                                </div>
-                                 End of /.products 
-                            </li>
-                            <li>
-                                <div class="products">
-                                    <a href="#">
-                                        <img src="images/product-image-8.jpg" alt="">
-                                    </a>
-                                    <a href="#">
-                                        <h4>Amazing Italian Sauces</h4>
-                                    </a>
-                                    <p class="price">From: £69.99</p>
-                                    <div>
-                                        <a class="view-link shutter" href="#">
-                                            <i class="fa fa-plus-circle"></i>Add To Cart</a>
-                                    </div>
-                                </div>
-                                 End of /.products 
-                            </li>
-                            <li>
-                                <div class="products">
-                                    <a href="#">
-                                        <img src="images/product-image-8.jpg" alt="">
-                                    </a>
-                                    <a href="#">
-                                        <h4>Amazing Italian Sauces</h4>
-                                    </a>
-                                    <p class="price">From: £69.99</p>
-                                    <div>
-                                        <a class="view-link shutter" href="#">
-                                            <i class="fa fa-plus-circle"></i>Add To Cart</a>
-                                    </div>
-                                </div>
-                                 End of /.products 
-                            </li>-->
-                            <!--  ... -->
+
                         </ul>
                     </div>
                     <!-- End of /.products-grid -->
 
                     <!-- Pagination -->
 
-                    <div class="pagination-bottom">
+<!--                    <div class="pagination-bottom">
                         <ul class="pagination">
                             <li class="disabled"><a href="#">&laquo;</a></li>
                             <li class="active"><a href="#">1 <span class="sr-only"></span></a></li>
@@ -391,8 +311,8 @@
                             <li><a href="#">4</a></li>
                             <li><a href="#">»</a></li>
                         </ul>
-                        <!--                         End of /.pagination -->
-                    </div>
+                                                 End of /.pagination 
+                    </div>-->
                 </div>
                 <!-- End of /.col-md-9 -->
                 <div class="col-md-3">
@@ -400,22 +320,22 @@
                         <div class="block">
                                 <h4>Genre:</h4>
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item"> Action Movie </a>
-                                    <a href="#" class="list-group-item"> Romantic Movie </a>
-                                    <a href="#" class="list-group-item"> Comedy Movie </a>
-                                    <a href="#" class="list-group-item"> Horror Movie </a>
-                                    <a href="#" class="list-group-item"> Science Fiction Movie </a>
-                                    <a href="#" class="list-group-item"> Adventure Movie </a>
+                                    <a href="ControllerProducts?do=Category&cate=1" class="list-group-item"> Action Movie </a>
+                                    <a href="ControllerProducts?do=Category&cate=2" class="list-group-item"> Romantic Movie </a>
+                                    <a href="ControllerProducts?do=Category&cate=3" class="list-group-item"> Comedy Movie </a>
+                                    <a href="ControllerProducts?do=Category&cate=4" class="list-group-item"> Horror Movie </a>
+                                    <a href="ControllerProducts?do=Category&cate=5" class="list-group-item"> Science Fiction Movie </a>
+                                    <a href="ControllerProducts?do=Category&cate=6" class="list-group-item"> Adventure Movie </a>
                                 </div>
                             </div>
-                            <div class="block">
+<!--                            <div class="block">
                                 <h4>Sort by:</h4>
                                 <div class="list-group">
                                     <a href="#" class="list-group-item"> Name </a>
                                     <a href="#" class="list-group-item"> Price </a>
                                     <a href="#" class="list-group-item"> Year </a>
                                 </div>
-                            </div>
+                            </div>-->
                         <!-- <div class="block">
                             <img src="images/food-ad.png" alt="">
                         </div> -->

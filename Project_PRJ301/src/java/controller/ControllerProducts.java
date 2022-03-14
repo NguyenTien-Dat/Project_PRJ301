@@ -114,6 +114,15 @@ public class ControllerProducts extends HttpServlet {
                 RequestDispatcher dispath = request.getRequestDispatcher("sort.jsp");
                 dispath.forward(request, response);
             }
+            
+            if (service.equals("Sort")) {
+                String price1 = request.getParameter("price1");
+                String price2 = request.getParameter("price2");
+                Vector<Products> vector = dao.SortBetweenPrice(price1,price2);
+                request.setAttribute("vector", vector);
+                RequestDispatcher dispath = request.getRequestDispatcher("sort.jsp");
+                dispath.forward(request, response);
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }

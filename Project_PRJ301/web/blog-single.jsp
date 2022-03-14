@@ -171,7 +171,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="#">
+                    <a href="ControllerProducts">
                         <img src="images/logo.jpg" alt="logo">
                     </a>
                 </div>
@@ -248,8 +248,7 @@
                 <div class="col-md-8 hidden-xs">
                     <ol class="breadcrumb pull-right">
                         <li><a href="ControllerProducts">Home</a></li>
-                        <li><a href="ControllerProducts?do=ALL&page=1">Blog</a></li>
-                        <li class="active">Single Post</li>
+                        <li class="active">Movie Information</li>
                     </ol>
                 </div>
                 <!-- End of /.col-md-8 -->
@@ -401,12 +400,12 @@
                 <div class="col-md-4">
                     <div class="block">
                         <h4>GET IN TOUCH</h4>
-                        <p><i class="fa  fa-map-marker"></i> <span>Movie web for rich people </span>Hoa Lac Hi-Tech Park, Km29, Thang Long Avenue, Thach That Dist. Hanoi City</p>
-                        <p> <i class="fa  fa-phone"></i> <span>Phone:</span> (+386) 40 123 456 </p>
+                        <p><span>Movie web for rich people </span>Hoa Lac Hi-Tech Park, Km29, Thang Long Avenue, Thach That Dist. Hanoi City</p>
+                        <p> <span>Phone:</span> (+386) 40 123 456 </p>
 
-                        <p> <i class="fa  fa-mobile"></i> <span>Mobile:</span> (+386) 40 654 123 651</p>
+                        <p> <span>Mobile:</span> (+386) 40 654 123 651</p>
 
-                        <p class="mail"><i class="fa  fa-envelope"></i>Email: <span>info@sitename.com</span></p>
+                        <p class="mail">Email: <span>info@sitename.com</span></p>
                     </div>
                     <!-- End Of /.block -->
                 </div>

@@ -1,20 +1,19 @@
 <%-- 
-    Document   : Category
-    Created on : Mar 11, 2022, 8:48:53 PM
+    Document   : homeAdmin
+    Created on : Mar 14, 2022, 9:30:12 PM
     Author     : MSI_PRO
 --%>
 
-<%@page import="java.sql.ResultSet"%>
-<%@page import="model.Categories"%>
+<%@page import="entity.Products"%>
 <%@page import="java.util.Vector"%>
-<%@page import="model.Products"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x"%>
 <!doctype html>
 <html lang="en">
 
     <head>
         <meta charset="UTF-8">
-        <title>Food Code Proudly Presents By Themexpert</title>
+        <title>Project PRJ301</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <!-- Fonts -->
@@ -24,6 +23,7 @@
         <!-- Css -->
         <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" />
         <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="css/owl.theme.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/style.css">
@@ -43,8 +43,8 @@
 
     <body>
         <% Vector<Products> vector = (Vector<Products>) request.getAttribute("vector");
-            Vector<Categories> v1 = (Vector<Categories>) request.getAttribute("v1");
-            ResultSet rs = (ResultSet) request.getAttribute("rs");
+            Vector<Products> v2 = (Vector<Products>) request.getAttribute("v2");
+            Vector<Products> v3 = (Vector<Products>) request.getAttribute("v3");
         %>
 
         <!-- TOP HEADER Start
@@ -54,7 +54,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <p class="contact-action"><i class="fa fa-phone-square"></i>IN CASE OF ANY QUESTIONS, CALL THIS NUMBER: <strong>+565 975 658</strong></p>
+                        <p class="contact-action">Hoàng Trọng Hiếu - HE151404  <strong>+84 9046xxxx</strong></p>
                     </div>
                     <div class="col-md-3 clearfix">
                         <ul class="login-cart">
@@ -65,7 +65,8 @@
                             </li>
                             <li>
                                 <div class="cart dropdown">
-                                    <a data-toggle="dropdown" href="#"><i class="fa fa-shopping-cart"></i>Cart(1)</a>
+                                    <a href="Cart.jsp">
+                                        <i class="fa fa-shopping-cart"></i>Cart</a>
                                     <div class="dropdown-menu dropup">
                                         <span class="caret"></span>
                                         <ul class="media-list">
@@ -89,15 +90,14 @@
                             <div class="input-group">
                                 <form action="ControllerProducts" method="post">
                                     <table> 
-                                        <tr>
-                                        <input type="hidden" name="do" value="Search">
-                                        <td><input placeholder="Search Here" type="text" name="name" class="form-control"></td>
-                                        <td><button class="class" type="submit" value="search"></td>
-                                        </tr>
+                                            <tr>
+                                                <input type="hidden" name="do" value="Search">
+                                                <td><input placeholder="Search Here" type="text" name="name" class="form-control"></td>
+                                                <td><button class="class" type="submit" value="search"></td>
+                                            </tr>
                                         </div>
                                     </table>
                                 </form>
-                            </div>
                             <!-- /.input-group -->
                         </div>
                         <!-- /.search-box -->
@@ -177,7 +177,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="ControllerProducts">
+                        <a href="#">
                             <img src="images/logo.jpg" alt="logo">
                         </a>
                     </div>
@@ -209,10 +209,9 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav nav-main">
-                        <li><a href="ControllerProducts">HOME</a></li>
+                        <li class="active"><a href="ControllerProducts">HOME</a></li>
                         <li><a href="ControllerProducts?do=ALL&page=1">SHOP</a></li>
-                        <!-- <li><a href="blog.html">BLOG</a></li> -->
-                        <!-- <li><a href="blog-single.html">ARTICLE</a></li> -->
+                        <!--<li><a href="blog-single.jsp">ARTICLE</a></li>-->
                         <li class="dropdown">
                             <a href="#">
                                 MOVIE GENRE
@@ -240,162 +239,160 @@
         <!-- End of /.nav -->
 
 
+        <!-- SLIDER Start
+        ================================================== -->
 
 
-        <section id="topic-header">
+        <section id="slider-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
-                        <%if (rs.next()) {%>
-                        <h1><%=rs.getString(2)%> MOVIES</h1>
-                        <p>The latest <%=rs.getString(2)%> Movie genre in 2022, continuously updated with new movies of the <%=rs.getString(2)%> Movie genre, the movies are selected and of high quality.</p>
-                        <%}%>
+                    <div class="col-md-12">
+                        <div id="slider" class="b">
+                            <%for (Products v : v3) {%>
+                            <img src="<%=v.getImagine()%>" alt="" />
+                            <%}%>
+                        </div>
                     </div>
-                    <!-- End of /.col-md-4 -->
-                    <div class="col-md-8 hidden-xs">
-                        <ol class="breadcrumb pull-right">
-                            <li><a href="ControllerProducts">Home</a></li>
-                            <li class="active">Movie Genre</li>
-                        </ol>
-                    </div>
-                    <!-- End of /.col-md-8 -->
+                    <!-- End of /.col-md-12 -->
                 </div>
                 <!-- End of /.row -->
             </div>
             <!-- End of /.container -->
         </section>
-        <!-- End of /#Topic-header -->
+        <!-- End of Section -->
 
 
 
-        <!-- PRODUCTS Start
+        <!-- FEATURES Start
         ================================================== -->
 
-        <section id="shop">
+        <div class="product-section mt-150 mb-150">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="products-heading">
-                            <!--                        <h2>PRODUCTS</h2>-->
-                        </div>
-                        <!-- End of /.Products-heading -->
-                        <div class="product-grid">
-                            <ul> 
-                                <%for (Products cate : vector) {%>
-                                <li>
-                                    <div class="products">
-                                        <a href="#">
-                                            <img src="<%=cate.getImagine()%>" alt="">
-                                        </a>
-                                        <a href="#">
-                                            <h4><%=cate.getProductName()%></h4>
-                                        </a>
-                                        <p class="price">£<%=cate.getPrice()%></p>
-                                        <div>
-                                            <a class="view-link shutter" href="#">
-                                                <i class="fa fa-plus-circle"></i>Add To Cart</a>
-                                        </div>
-                                    </div>
-                                    <!-- End of /.products -->
-                                </li>
-                                <%}%>
-                            </ul>
-                        </div>
-                        <!-- End of /.products-grid -->
-
-                        <!-- Pagination -->
-
-                        <!--                    <div class="pagination-bottom">
-                                                <ul class="pagination">
-                                                    <li class="disabled"><a href="#">&laquo;</a></li>
-                                                    <li class="active"><a href="#">1 <span class="sr-only"></span></a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li><a href="#">4</a></li>
-                                                    <li><a href="#">»</a></li>
-                                                </ul>
-                                                 End of /.pagination 
-                                            </div>-->
-                    </div>
-                    <!-- End of /.col-md-9 -->
-                    <div class="col-md-3">
-                        <div class="blog-sidebar">
-                            <div class="block">
-                                <h4>Movie Genre</h4>
-                                <div class="list-group">
-                                    <a href="ControllerProducts?do=Category&cate=1" class="list-group-item">Action Movie</a>
-                                    <a href="ControllerProducts?do=Category&cate=2" class="list-group-item">Romantic movie</a>
-                                    <a href="ControllerProducts?do=Category&cate=3" class="list-group-item">Comedy Movie</a>
-                                    <a href="ControllerProducts?do=Category&cate=4" class="list-group-item">Horror Movie</a>
-                                    <a href="ControllerProducts?do=Category&cate=5" class="list-group-item">Science Fiction Movie</a>
-                                    <a href="ControllerProducts?do=Category&cate=6" class="list-group-item">Adventure Movie</a>
-                                </div>
-                            </div>
-
-                            <div class="block">
-                                <h4>Latest Movie Items</h4>
-                                <ul class="media-list">
-                                    <li class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object" src="images/post-img.png" alt="...">
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading">Lamb leg roast
-                                                <p>Lorem ipsum dolor sit amet.</p></a>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object" src="images/post-img-2.png" alt="...">
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading"> Lamingtons
-                                                <p>Lorem ipsum dolor.</p></a>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object" src="images/post-img-3.png" alt="...">
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading">
-                                                Anzac Salad
-                                                <p>Lorem ipsum dolor sit.</p>
-
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="block">
-                                <h4>Movie Tag</h4>
-                                <div class="tag-link">
-                                    <a href="">ACTION</a>
-                                    <a href="">CHRISTMAS</a>
-                                    <a href="">NEW MOVIE</a>
-                                    <a href="">ANIMATION</a>
-                                    <a href="">SHOPPING</a>
-                                    <a href="">HOTTEST</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of /.col-md-3 -->
-
-                    </div>
-                    <!-- End of /.row -->
+                <div class="hieu">
+                    <h1> <span>Our </span>Products</h1>
+                    <p>Sometimes it’s easier to be mad at the people you trust because you know that they’ll always love you no matter what you say.</p>
+                    <p style="float: right; padding-bottom: 50px; font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 30px; color: rgb(119, 119, 118); ">-Jack Sparrow-</p>
                 </div>
-                <!-- End of /.container -->
+            </div>
+        </div>
+        <!-- End of section -->
+
+
+
+        <!-- CATAGORIE Start
+        ================================================== -->
+
+        <section id="catagorie ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-md-12 ">
+                        <div class="block ">
+                            <div class="block-heading ">
+                                <h2></h2>
+                            </div>
+                            <div class="row ">
+                                <% for (Products v : v2) {%>
+                                <div class="col-sm-6 col-md-4 ">
+                                    <div class="thumbnail ">
+                                        <a class="catagotie-head " href="ControllerProducts?do=blog&id=<%=v.getProductID()%>">
+                                            <img src="<%=v.getImagine()%>" alt="... ">
+                                            <h3><%=v.getProductName()%></h3>
+                                        </a>
+                                        <div class="caption ">
+                                            <p><%=v.getDescription().substring(0, 105)%>...</p>
+                                            <p>
+                                                <a href="ControllerProducts?do=blog&id=<%=v.getProductID()%>" class="btn btn-default btn-transparent " role="button ">
+                                                    <span>Check Items</span>
+                                                </a>
+                                            </p>
+                                        </div>
+                                        <!-- End of /.caption -->
+                                    </div>
+                                    <!-- End of /.thumbnail -->
+                                </div>
+                                <%}%>
+                            </div>
+                            <!-- End of /.row -->
+                        </div>
+                        <!-- End of /.block -->
+                    </div>
+                    <!-- End of /.col-md-12 -->
+                </div>
+                <!-- End of /.row -->
+            </div>
+            <!-- End of /.container -->
         </section>
         <!-- End of Section -->
 
 
 
 
+        <!-- PRODUCTS Start
+        ================================================== -->
 
+        <section id="products ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-md-12 ">
+                        <div class="products-heading ">
+                            <h2>Best Seller</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <% for (Products pro : vector) {%>
+                    <div class="col-md-3 ">
+                        <div class="products ">
+                            <a href="ControllerProducts?do=blog&id=<%=pro.getProductID()%>">
+                                <img src="<%=pro.getImagine()%>" alt="">
+                            </a>
+                            <a href="ControllerProducts?do=blog&id=<%=pro.getProductID()%>">
+                                <h4><%=pro.getProductName()%></h4>
+                            </a>
+                            <p class="price "><%=pro.getPrice()%></p>
+                            <a class="view-link shutter " href="ControllerProducts?do=update">
+                                <i class="fa fa-plus-circle "></i>Update</a>
+                            <a class="view-link shutter " href="ControllerProducts?do=delete">
+                                <i class="fa fa-plus-circle "></i>Delete</a>
+                        </div>
+                    </div>
+                    <%}%>
+                </div>
+            </div>
+        </section>
 
+        <!-- CALL TO ACTION Start
+        ================================================== -->
 
-
+        <section id="call-to-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block">
+                            <div class="block-heading1">
+                                <h2>Our Partners</h2>
+                            </div>
+                        </div>
+                        <!-- End of /.block -->
+                        <div id="owl-example" class="owl-carousel">
+                            <img src="images/20century.jpg" alt=" ">
+                            <img src="images/wb.jpg" alt=" ">
+                            <div> <img src="images/marvel.jpg" alt=" "></div>
+                            <div> <img src="images/paramount.jpg" alt=" "></div>
+                            <div> <img src="images/pixar.jpg" alt=" "></div>
+                            <div> <img src="images/sony.jpg" alt=" "></div>
+                            <div> <img src="images/disney.jpg" alt=" "></div>
+                            <div> <img src="images/universal.jpg" alt=" "></div>
+                        </div>
+                        <!-- End of /.Owl-Slider -->
+                    </div>
+                    <!-- End of /.col-md-12 -->
+                </div>
+                <!-- End Of /.Row -->
+            </div>
+            <!-- End Of /.Container -->
+        </section>
+        <!-- End of Section -->
 
 
 
@@ -403,18 +400,15 @@
         ================================================== -->
 
         <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="block clearfix">
-                            <a href="#">
-                                <img src="images/" alt="">
-                            </a>
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-md-4 ">
+                        <div class="block clearfix ">
                             <p>
                                 The place to update the hottest new movies today.
                             </p>
-                            <h4 class="connect-heading">CONNECT WITH US</h4>
-                            <ul class="social-icon">
+                            <h4 class="connect-heading ">CONNECT WITH US</h4>
+                            <ul class="social-icon ">
                                 <li>
                                     <a class="facebook-icon " href="# ">
                                         <img class=" " src="images/fb.png " alt="... ">
@@ -441,31 +435,31 @@
                         <!-- End Of /.block -->
                     </div>
                     <!-- End Of /.Col-md-4 -->
-                    <div class="col-md-4">
-                        <div class="block">
+                    <div class="col-md-4 ">
+                        <div class="block ">
                             <h4>GET IN TOUCH</h4>
-                            <p><span>Movie web for rich people </span>Hoa Lac Hi-Tech Park, Km29, Thang Long Avenue, Thach That Dist. Hanoi City</p>
-                            <p><span>Phone:</span> (+386) 40 123 456 </p>
+                            <p><i class="fa fa-map-marker "></i> <span>Movie web for rich people </span>Hoa Lac Hi-Tech Park, Km29, Thang Long Avenue, Thach That Dist. Hanoi City</p>
+                            <p> <i class="fa fa-phone "></i> <span>Phone:</span> (+386) 40 123 456 </p>
 
-                            <p> <span>Mobile:</span> (+386) 40 654 123 651</p>
+                            <p> <i class="fa fa-mobile "></i> <span>Mobile:</span> (+386) 40 654 123 651</p>
 
-                            <p class="mail">Email: <span>info@sitename.com</span></p>
+                            <p class="mail "><i class="fa fa-envelope "></i>Email: <span>info@sitename.com</span></p>
                         </div>
                         <!-- End Of /.block -->
                     </div>
                     <!-- End Of Col-md-3 -->
-                    <div class="col-md-4">
-                        <div class="block">
+                    <div class="col-md-4 ">
+                        <div class="block ">
                             <h4>UPCOMING ITEMS</h4>
-                            <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object" src="images/product-item.jpg" alt="...">
+                            <div class="media ">
+                                <a class="pull-left " href="# ">
+                                    <img class="media-object " src="images/product-item.jpg " alt="... ">
                                 </a>
-                                <a class="pull-left" href="#">
-                                    <img class="media-object" src="images/product-item.jpg" alt="...">
+                                <a class="pull-left " href="# ">
+                                    <img class="media-object " src="images/product-item.jpg " alt="... ">
                                 </a>
-                                <a class="pull-left" href="#">
-                                    <img class="media-object" src="images/product-item.jpg" alt="...">
+                                <a class="pull-left " href="# ">
+                                    <img class="media-object " src="images/product-item.jpg " alt="... ">
                                 </a>
                             </div>
                             <!-- End Of /.media -->
@@ -478,43 +472,41 @@
             </div>
             <!-- End Of /.Container -->
 
-
-
             <!-- FOOTER-BOTTOM Start
         ================================================== -->
 
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ul class="cash-out pull-left">
+            <div class="footer-bottom ">
+                <div class="container ">
+                    <div class="row ">
+                        <div class="col-md-12 ">
+                            <ul class="cash-out pull-left ">
                                 <li>
-                                    <a href="#">
-                                        <img src="images/American-Express.png" alt="">
+                                    <a href="# ">
+                                        <img src="images/American-Express.png " alt=" ">
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <img src="images/PayPal.png" alt="">
+                                    <a href="# ">
+                                        <img src="images/PayPal.png " alt=" ">
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <img src="images/Maestro.png" alt="">
+                                    <a href="# ">
+                                        <img src="images/Maestro.png " alt=" ">
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <img src="images/Visa.png" alt="">
+                                    <a href="# ">
+                                        <img src="images/Visa.png " alt=" ">
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <img src="images/Visa-Electron.png" alt="">
+                                    <a href="# ">
+                                        <img src="images/Visa-Electron.png " alt=" ">
                                     </a>
                                 </li>
                             </ul>
-                            <p class="copyright-text pull-right">Project Designed by Hoàng Trọng Hiếu<a href="http://www.themexpert.com">Themexpert</a> All Rights Reserved</p>
+                            <p class="copyright-text pull-right ">Project Designed by Hoang Trong Hieu<a href="http://www.themexpert.com ">Themexpert</a> All Rights Reserved</p>
                         </div>
                         <!-- End Of /.col-md-12 -->
                     </div>
@@ -526,7 +518,8 @@
         </footer>
         <!-- End Of Footer -->
 
-        <a id="back-top" href="#"></a>
+        <a id="back-top " href="# "></a>
     </body>
 
 </html>
+
