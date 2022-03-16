@@ -354,6 +354,36 @@ public class DAOProducts extends ConnectDB {
         }
         return vector;
     }
+    
+    public void Create(int subid, int cateid, String name, int year, String price, String imagine, String description, int quantity, int discontinued) {
+        Vector<Products> vector= new Vector<Products>();
+        String sql="";
+    }
+    
+    public int updateProducts(Products pro) {
+        int n = 0;
+        String sql = "UPDATE [Project].[dbo].[Products]\n"
+                + "   SET [SupplierID]=?,[CategoryID]=?,[ProductName] =?,[Year] =?,"
+                + "[Price] = ?,[Imagine] = ?,[Description] =?,[Quantity] = ?,[Discontinued] = ?\n"
+                + " WHERE  ProductID = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, pro.getSupplierID());
+            pre.setInt(2, pro.getCategoryID());
+            pre.setString(3, pro.getProductName());
+            pre.setInt(4, pro.getYear());
+            pre.setDouble(5, pro.getPrice());
+            pre.setString(6, pro.getImagine());
+            pre.setString(7, pro.getDescription());
+            pre.setInt(8, pro.getQuantity());
+            pre.setInt(9, pro.getDiscontinued());
+            pre.setInt(10, pro.getProductID());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
 
     public static void main(String[] args) {
         DAOProducts dao = new DAOProducts();
