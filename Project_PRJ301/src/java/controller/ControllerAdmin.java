@@ -9,6 +9,7 @@ import DAL.DAOProducts;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
+import java.util.Vector;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -77,11 +78,47 @@ public class ControllerAdmin extends HttpServlet {
                 float uprice = Float.parseFloat(price);
                 int quan = Integer.parseInt(quantity);
                 int dis = Integer.parseInt(discontinued);
-                Products pro = new Products(pid,supid, ccid,name, yyear, uprice, imagine, description, quan, dis);
+                Products pro = new Products(pid, supid, ccid, name, yyear, uprice, imagine, description, quan, dis);
                 int n = dao.updateProducts(pro);
                 ResultSet rs = dao.getData("select * from Products where ProductID=" + pid);
                 request.setAttribute("rs", rs);
                 RequestDispatcher dispath = request.getRequestDispatcher("updateadmin.jsp");
+                dispath.forward(request, response);
+            }
+            if (service.equals("all")) {
+                Vector<Products> vector = dao.listAllProduct("select * from Products");
+                request.setAttribute("vector", vector);
+                RequestDispatcher dispath = request.getRequestDispatcher("ProductsManager.jsp");
+                dispath.forward(request, response);
+            }
+            if (service.equals("deleteP")) {
+                String id = request.getParameter("id");
+                int pid = Integer.parseInt(id);
+                int n = dao.removeProduct(pid);
+                Vector<Products> vector = dao.listAllProduct("select * from Products");
+                request.setAttribute("vector", vector);
+                RequestDispatcher dispath = request.getRequestDispatcher("ProductsManager.jsp");
+                dispath.forward(request, response);
+            }if(service.equals("insert")){
+                String cid = request.getParameter("cid");
+                String name = request.getParameter("name");
+                String year = request.getParameter("year");
+                String price = request.getParameter("price");
+                String imagine = request.getParameter("imagine");
+                String description = request.getParameter("description");
+                String quantity = request.getParameter("quantity");
+                String discontinued = request.getParameter("discontinued");
+
+                int ccid = Integer.parseInt(cid);
+                int yyear = Integer.parseInt(year);
+                float uprice = Float.parseFloat(price);
+                int quan = Integer.parseInt(quantity);
+                int dis = Integer.parseInt(discontinued);
+                Products pro = new Products(1, ccid, price, yyear, uprice, imagine, description, quan, dis);
+                int n=dao.addProduct(pro);
+                Vector<Products> vector = dao.listAllProduct("select * from Products");
+                request.setAttribute("vector", vector);
+                RequestDispatcher dispath = request.getRequestDispatcher("ProductsManager.jsp");
                 dispath.forward(request, response);
             }
         } catch (Exception ex) {

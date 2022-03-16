@@ -8,6 +8,7 @@ package DAL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Vector;
 import model.Page;
 import model.ProductCart;
@@ -355,9 +356,17 @@ public class DAOProducts extends ConnectDB {
         return vector;
     }
     
-    public void Create(int subid, int cateid, String name, int year, String price, String imagine, String description, int quantity, int discontinued) {
-        Vector<Products> vector= new Vector<Products>();
-        String sql="";
+    public int removeProduct(int id) {
+        int n = 0;
+        String sql = "delete from Products where ProductID=" + id;
+        String check = " select * from Products" + "where " + id + " in(select distinct " + id + " from [Order Details]";
+        try {
+            Statement state = conn.createStatement();
+            n = state.executeUpdate(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
     }
     
     public int updateProducts(Products pro) {
@@ -372,12 +381,35 @@ public class DAOProducts extends ConnectDB {
             pre.setInt(2, pro.getCategoryID());
             pre.setString(3, pro.getProductName());
             pre.setInt(4, pro.getYear());
-            pre.setDouble(5, pro.getPrice());
+            pre.setFloat(5, pro.getPrice());
             pre.setString(6, pro.getImagine());
             pre.setString(7, pro.getDescription());
             pre.setInt(8, pro.getQuantity());
             pre.setInt(9, pro.getDiscontinued());
             pre.setInt(10, pro.getProductID());
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return n;
+    }
+    
+    public int addProduct(Products pr) {
+        int n = 0;
+        String sql = "INSERT INTO [Project].[dbo].[Products]\n"
+                + "           ([SupplierID],[CategoryID],[ProductName],[Year],[Price],[Imagine],[Description],[Quantity],[Discontinued])\n"
+                + "    VALUES(?,?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, pr.getSupplierID());
+            pre.setInt(2, pr.getCategoryID());
+            pre.setString(3, pr.getProductName());
+            pre.setInt(4, pr.getYear());
+            pre.setFloat(5, pr.getPrice());
+            pre.setString(6, pr.getImagine());
+            pre.setString(7, pr.getDescription());
+            pre.setInt(8, pr.getQuantity());
+            pre.setInt(9, pr.getDiscontinued());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

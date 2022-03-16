@@ -190,7 +190,7 @@
                         <tr>
                             <td></td>
                             <td>
-                                <button type="submit" >Payment</button>
+                                <button type="submit">Payment</button>
                             </td>
                         </tr>
                         </c:if>

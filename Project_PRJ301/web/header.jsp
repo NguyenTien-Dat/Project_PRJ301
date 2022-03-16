@@ -4,6 +4,44 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x"%>
 
+<style>
+
+            #main{
+                background-color: #000;
+            }
+            #header {
+                height: 80px;
+                background-color: #333;
+                text-align: center; 
+                top: 0;
+                left: 0;
+                right: 0;
+                font-size: 14px;
+                padding-left: 150px;
+                 padding-top: 15px;
+            }
+            #nav-header {
+                display: inline-block;
+            }
+            #nav-header > li {
+                display: inline-block;
+            }
+            #nav-header li:hover a {
+                color: gold;
+                background-color: #000;
+            }
+            #nav-header li a {
+                text-decoration: none;
+                line-height: 50px;
+                padding: 0 20px;
+                display: block;
+            }
+            #nav-header > li > a {
+                color: #fff;
+                text-transform: uppercase;
+            }
+        </style>
+
 <section id="top">
     <div class="container">
         <div class="row">
@@ -12,20 +50,31 @@
                 <c:if test="${sessionScope.account!=null || sessionScope.admin!=null}">
                     <p style="text-align: center; margin-left: 250px" >  Welcome ${sessionScope.account.getCustomerName()} ${sessionScope.admin.getName()}</p>
                 </c:if>
+                <c:if test="${sessionScope.admin!=null}">
+                    <div id="main">
+                        <div id="header">
+                            <ul id="nav-header">
+                                <li><a href="ControllerAdmin?do=users">Users Manager</a></li>
+                                <li><a href="ControllerAdmin?do=user">Bills Manager</a></li>
+                                <li><a href="ControllerAdmin?do=all">Products Manager</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </c:if>
             </div>
             <div class="col-md-3 clearfix">
                 <ul class="login-cart">
                     <c:if test="${sessionScope.account==null && sessionScope.admin==null}">
                         <li>
                             <a href="mylogin.jsp">
-                                 Login
+                                <i class="fa fa-user"></i> Login
                             </a>
                         </li>
                     </c:if>
                     <c:if test="${sessionScope.account!=null || sessionScope.admin!=null}">
                         <li>
                             <a href="ControllerAccount?do=logout">
-                                 Logout
+                                <i class="fa fa-user"></i> Logout
                             </a>
                         </li>
                     </c:if>
@@ -42,14 +91,17 @@
                         %>
                         <div class="cart dropdown">
                             <c:if test="${sessionScope.account!=null}" >
-                            <a href="Cart.jsp">Cart(<%=count%>)</a>
-                            </c:if>
-                             <c:if test="${sessionScope.account==null && sessionScope.admin==null }" >
-                            <a href="mylogin.jsp">Cart(<%=count%>)</a>
-                            </c:if>
-                            <c:if test="${sessionScope.admin!=null}" >
-                            <a href="mylogin.jsp">Manager</a>
-                            </c:if>
+                                <a href="Cart.jsp">
+                                    <i class="fa fa-shopping-cart"></i>Cart(<%=count%>)</a>
+                                </c:if>
+                                <c:if test="${sessionScope.account==null && sessionScope.admin==null }" >
+                                <a href="mylogin.jsp">
+                                    <i class="fa fa-shopping-cart"></i>Cart(<%=count%>)</a>
+                                </c:if>
+                        <c:if test="${sessionScope.admin!=null}" >
+                                <a href="mylogin.jsp">
+                                    <i class="fa fa-shopping-cart"></i>Manager</a>
+                                </c:if>
                         </div>
                     </li>
                 </ul>
@@ -147,7 +199,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a href="ControllerProducts">
+                <a href="#">
                     <img src="images/logo.jpg" alt="logo">
                 </a>
             </div>

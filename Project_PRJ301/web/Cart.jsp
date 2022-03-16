@@ -8,7 +8,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Food Code Proudly Presents By Themexpert</title>
+        <title>Project PRJ301</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <!-- Fonts -->
@@ -50,8 +50,8 @@
                         <!-- End of /.col-md-4 -->
                         <div class="col-md-8 hidden-xs">
                             <ol class="breadcrumb pull-right">
-                                <li><a href="#">Home</a></li>
-                                <li class="active">Blog</li>
+                                <li><a href="ControllerProducts">Home</a></li>
+                                <li class="active">Cart</li>
                             </ol>
                         </div>
                         <!-- End of /.col-md-8 -->
@@ -133,9 +133,6 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="cart-buttons">
-                                <a href="checkout.html" class="boxed-btn black" style="font-weight: bold;padding-left:15px;" >Check Out</a>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,3 @@
-
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,7 +9,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Food Code Proudly Presents By Themexpert</title>
+        <title>Project PRJ301</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <!-- Fonts -->
@@ -41,7 +40,7 @@
                 font-family: 'Yanone Kaffeesatz', sans-serif;
                 font-size: 25px;
             }
-            
+
             input {
                 padding-right: 50px;
                 padding-left: 10px;
@@ -59,39 +58,39 @@
         ================================================== -->
         <jsp:include page="header.jsp"></jsp:include>
 
-        <section id="topic-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h1>Update Movie</h1>
-                        <p></p>
+            <section id="topic-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h1>Update Movie</h1>
+                            <p></p>
+                        </div>
+                        <!-- End of /.col-md-4 -->
+                        <div class="col-md-8 hidden-xs">
+                            <ol class="breadcrumb pull-right">
+                                <li><a href="#">Home</a></li>
+                                <li class="active">Update</li>
+                            </ol>
+                        </div>
+                        <!-- End of /.col-md-8 -->
                     </div>
-                    <!-- End of /.col-md-4 -->
-                    <div class="col-md-8 hidden-xs">
-                        <ol class="breadcrumb pull-right">
-                            <li><a href="#">Home</a></li>
-                            <li class="active">Update</li>
-                        </ol>
-                    </div>
-                    <!-- End of /.col-md-8 -->
+                    <!-- End of /.row -->
                 </div>
-                <!-- End of /.row -->
-            </div>
-            <!-- End of /.container -->
-        </section>
-        <!-- End of /#Topic-header -->
+                <!-- End of /.container -->
+            </section>
+            <!-- End of /#Topic-header -->
 
-        <!--================================================== -->
+            <!--================================================== -->
 
-        <!-- cart -->
-        <div class="cart-section mt-150 mb-150">
-            <div class="container">
-                <div class="row">
-                    <div> <!--class="col-lg-12 col-md-12"-->
-                        <div class="cart-table-wrap">
-                        <%ResultSet rs=(ResultSet)request.getAttribute("rs"); 
-                        if(rs.next()){
-                        %>
+            <!-- cart -->
+            <div class="cart-section mt-150 mb-150">
+                <div class="container">
+                    <div class="row">
+                        <div> <!--class="col-lg-12 col-md-12"-->
+                            <div class="cart-table-wrap">
+                            <%ResultSet rs = (ResultSet) request.getAttribute("rs");
+                                if (rs.next()) {
+                            %>
                             <form action="ControllerAdmin" method="get" style="padding-bottom: 100px; padding-top: 50px;">
                                 <input type="hidden" name="do" value="updateP">
                                 <table class="table">                                    
@@ -160,7 +159,7 @@
                                     <tr>
                                         <td></td>
                                         <td style="padding-left: 400px;">
-                                            <button type="submit">Update</button>
+                                            <button type="submit" onclick="showMess()">Update</button>
                                         </td>
                                     </tr>
                                 </table>
@@ -173,11 +172,16 @@
             </div>
         </div>
         <!-- end cart -->
-
-
+        <script>
+            function showMess() {
+               window.alert("Update successfully!!");
+         }
+        </script>
         <!-- FOOTER Start
         ================================================== -->
-        <jsp:include page="footer.jsp"></jsp:include>>
+        <jsp:include page="footer.jsp"></jsp:include>
     </body>
 
 </html>
+
+
