@@ -1,10 +1,5 @@
-<%-- 
-    Document   : homeAdmin
-    Created on : Mar 14, 2022, 9:30:12 PM
-    Author     : MSI_PRO
---%>
 
-<%@page import="entity.Products"%>
+<%@page import="model.Products"%>
 <%@page import="java.util.Vector"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x"%>
@@ -54,7 +49,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <p class="contact-action">Hoàng Trọng Hiếu - HE151404  <strong>+84 9046xxxx</strong></p>
+                        <p class="contact-action">Nguyễn Tiến Đạt - HE151404  <strong>+84 9046xxxx</strong></p>
                     </div>
                     <div class="col-md-3 clearfix">
                         <ul class="login-cart">

@@ -53,10 +53,12 @@ public class ControllerAccount extends HttpServlet {
             if (service == null) {
                 if (cus != null) {
                     session.setAttribute("account", cus);
-                    response.sendRedirect("/Project_PRJ/ControllerProducts");
+                    response.sendRedirect("ControllerProducts");
                 }if(emp!=null){
                     session.setAttribute("admin", emp);
-                    response.sendRedirect("/Project_PRJ/ControllerProducts");
+//                    response.sendRedirect("ControllerProducts");
+                    RequestDispatcher dispath=request.getRequestDispatcher("homeAdmin.jsp");
+                            dispath.forward(request, response);
                 }
                 else {
                     String name="Please try again!!!";
@@ -66,8 +68,10 @@ public class ControllerAccount extends HttpServlet {
                 }
             }if (service.equals("logout")) {
                 session.invalidate();
-                response.sendRedirect("/Project_PRJ/ControllerProducts");
+                response.sendRedirect("ControllerProducts");
             }
+        } catch(Exception ex) {
+            ex.printStackTrace();
         }
     }
 

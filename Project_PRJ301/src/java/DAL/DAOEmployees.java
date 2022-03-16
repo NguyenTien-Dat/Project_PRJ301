@@ -15,7 +15,7 @@ import model.Employees;
  */
 public class DAOEmployees  extends ConnectDB{
     public Employees loginE(String user, String pass) {
-        String sql = "select * from Employees where username='" + user + "' and password='" + pass + "'";
+        String sql = "select * from Employees where [user]='" + user + "' and [password]='" + pass + "'";
         ResultSet rs = getData(sql);
         Employees emp= new Employees();
         try {
@@ -28,11 +28,11 @@ public class DAOEmployees  extends ConnectDB{
                 String us=rs.getString(6);
                 String pas=rs.getString(7);
                 emp=new Employees(empID, Name, Title, City, Report, us, pas);
-                
+                return emp;
             }
         } catch (SQLException ex) {
                 ex.printStackTrace();
         }
-        return emp;
+        return null;
     }
 }

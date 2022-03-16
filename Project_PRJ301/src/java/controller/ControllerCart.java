@@ -154,7 +154,7 @@ public class ControllerCart extends HttpServlet {
                     int n = ord.addOrder(orderdetails);
                 }
                     session.invalidate();
-                response.sendRedirect("/Project_PRJ/ControllerProducts");
+                response.sendRedirect("/ControllerProducts");
             }
 
             if (service.equals("checkout")) {

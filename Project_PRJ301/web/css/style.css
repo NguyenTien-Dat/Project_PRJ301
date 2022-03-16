@@ -148,14 +148,13 @@ header {
     ==================================================*/
 
 .search-box .class {
-    background-color: #fff;
+    background-color: orange;
     border: none;
     text-decoration: none;
     color: white;
     padding: 9px 15px;
     cursor: pointer;
 }
-
 .search-box button {
     height: 25px;
     background: url("../images/search.png") no-repeat;
@@ -165,7 +164,6 @@ header {
     border: 0;
     outline: 0;
 }
-
 .search-box label {
     display: none;
 }
@@ -707,7 +705,7 @@ footer .block .logo img {
 footer .block .media-object {
     border: 1px solid #747474;
     padding: 2px;
-    height: 75px;
+    height: 100px;
 }
 
 footer .block .media>.pull-left {
@@ -1374,4 +1372,32 @@ footer .block span {
 
 .top-catagori-heading {
     margin-top: 0;
+}
+.product-image img{
+    max-width: 200px;
+}
+.cart-table-wrap button{
+  background-color: Crimson;
+  border: 2px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 2px;
+  cursor: pointer;
+  box-sizing:border-box;
+}
+.table button{
+    background-color: Crimson;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
