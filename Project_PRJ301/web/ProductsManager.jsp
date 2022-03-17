@@ -10,7 +10,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Food Code Proudly Presents By Themexpert</title>
+        <title>Project PRJ301</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <!-- Fonts -->

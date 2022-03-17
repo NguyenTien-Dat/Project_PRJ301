@@ -57,7 +57,7 @@ public class ControllerAccount extends HttpServlet {
                 }if(emp!=null){
                     session.setAttribute("admin", emp);
 //                    response.sendRedirect("ControllerProducts");
-                    RequestDispatcher dispath=request.getRequestDispatcher("homeAdmin.jsp");
+                    RequestDispatcher dispath=request.getRequestDispatcher("index.jsp");
                             dispath.forward(request, response);
                 }
                 else {
