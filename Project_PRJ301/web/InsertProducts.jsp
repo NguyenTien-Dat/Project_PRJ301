@@ -61,8 +61,6 @@
     </head>
 
     <body>
-
-
         <!-- TOP HEADER Start
         ================================================== -->
         <jsp:include page="header.jsp"></jsp:include>
@@ -169,8 +167,6 @@
                                 </form>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

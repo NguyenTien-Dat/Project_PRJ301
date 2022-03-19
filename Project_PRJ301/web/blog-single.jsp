@@ -33,9 +33,7 @@
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/main.js" type="text/javascript"></script>
 
-
     </head>
-
     <body>
         <%Vector<Products> vector = (Vector<Products>) request.getAttribute("vector"); %>
 
@@ -65,11 +63,6 @@
                 <!-- End of /.container -->
             </section>
             <!-- End of /#Topic-header -->
-
-
-
-
-
 
             <section id="blog">
                 <div class="container">
@@ -124,7 +117,6 @@
                             </div>
                         </div>
                         <!-- End of /.block -->
-
                     </div>
                     <!-- End of /.Sidebar -->
                 </div>
@@ -137,5 +129,4 @@
     <!-- End of /.Section -->
     <jsp:include page="footer.jsp"></jsp:include>
 </body>
-
 </html>

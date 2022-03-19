@@ -35,9 +35,7 @@
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/main.js" type="text/javascript"></script>
 
-
     </head>
-
     <body>
         <% Vector<Products> vector = (Vector<Products>) request.getAttribute("vector");
             Vector<Products> v2 = (Vector<Products>) request.getAttribute("v2");
@@ -66,8 +64,6 @@
         </section>
         <!-- End of Section -->
 
-
-
         <!-- FEATURES Start
         ================================================== -->
 
@@ -81,8 +77,6 @@
             </div>
         </div>
         <!-- End of section -->
-
-
 
         <!-- CATAGORIE Start
         ================================================== -->
@@ -128,9 +122,6 @@
             <!-- End of /.container -->
         </section>
         <!-- End of Section -->
-
-
-
 
         <!-- PRODUCTS Start
         ================================================== -->

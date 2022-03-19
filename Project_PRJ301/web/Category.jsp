@@ -33,10 +33,7 @@
         <script src="js/jquery.nicescroll.js"></script>
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/main.js" type="text/javascript"></script>
-
-
     </head>
-
     <body>
         <% Vector<Products> vector = (Vector<Products>) request.getAttribute("vector");
             Vector<Categories> v1 = (Vector<Categories>) request.getAttribute("v1");
@@ -102,7 +99,6 @@
                             </ul>
                         </div>
                         <!-- End of /.products-grid -->
-
                     </div>
                     <!-- End of /.col-md-9 -->
                     <div class="col-md-3">
@@ -160,9 +156,7 @@
                                         </a>
                                         <div class="media-body">
                                             <a href="" class="media-heading"> Aquaman
-
                                                 <p>Lorem ipsum dolor sit.</p>
-
                                             </a>
                                         </div>
                                     </li>
@@ -182,7 +176,6 @@
                             </div>
                         </div>
                         <!-- End of /.col-md-3 -->
-
                     </div>
                     <!-- End of /.row -->
                 </div>
@@ -191,6 +184,5 @@
         <!-- End of Section -->
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
-
 </html>
 
