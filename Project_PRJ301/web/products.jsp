@@ -34,9 +34,7 @@
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/main.js" type="text/javascript"></script>
 
-
     </head>
-
     <body>
         <%Vector<Products> vector = (Vector<Products>) request.getAttribute("vector");
             Vector<Page> v2 = (Vector<Page>) request.getAttribute("vec");
@@ -129,7 +127,6 @@
                                     <a href="ControllerProducts?do=Category&cate=2" class="list-group-item">
                                         <i class="fa  fa-dot-circle-o"></i> Romantic movie
                                     </a>
-
                                     <a href="ControllerProducts?do=Category&cate=3" class="list-group-item">
                                         <i class="fa  fa-dot-circle-o"></i> Comedy Movie
                                     </a>
@@ -193,7 +190,6 @@
                                         <div class="media-body">
                                             <a href="" class="media-heading"> Aquaman
                                                 <p>The Lost Kingdom</p>
-
                                             </a>
                                         </div>
                                     </li>
@@ -213,7 +209,6 @@
                             </div>
                         </div>
                         <!-- End of /.col-md-3 -->
-
                     </div>
                     <!-- End of /.row -->
                 </div>
@@ -222,5 +217,4 @@
         <!-- End of Section -->
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
-
 </html>

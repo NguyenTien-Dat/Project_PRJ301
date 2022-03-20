@@ -32,11 +32,8 @@
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/main.js" type="text/javascript"></script>
 
-
     </head>
-
     <body>
-
 
         <!-- TOP HEADER Start
         ================================================== -->
@@ -63,8 +60,6 @@
             <!-- End of /.container -->
         </section>
         <!-- End of /#Topic-header -->
-
-
 
         <!-- PRODUCTS Start
         ================================================== -->
@@ -175,7 +170,6 @@
                                         <div class="media-body">
                                             <a href="" class="media-heading"> Aquaman
                                                 <p>The Lost Kingdom</p>
-
                                             </a>
                                         </div>
                                     </li>
@@ -195,7 +189,6 @@
                             </div>
                         </div>
                         <!-- End of /.col-md-3 -->
-
                     </div>
                     <!-- End of /.row -->
                 </div>

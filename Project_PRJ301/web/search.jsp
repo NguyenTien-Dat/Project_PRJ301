@@ -32,11 +32,8 @@
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/main.js" type="text/javascript"></script>
 
-
     </head>
-
     <body>
-
 
         <!-- TOP HEADER Start
         ================================================== -->
@@ -64,8 +61,6 @@
             </section>
             <!-- End of /#Topic-header -->
 
-
-
             <!-- PRODUCTS Start
             ================================================== -->
         <% Vector<Products> vector = (Vector<Products>) request.getAttribute("vector");
@@ -81,7 +76,6 @@
                         <!-- End of /.Products-heading -->
                         <div class="product-grid">
                             <ul>
-
                                 <% for (Products p : vector) {%>                           
                                 <li>
                                     <div class="products">
@@ -140,10 +134,6 @@
                                     <a href="ControllerProducts?do=sortYear" class="list-group-item"> Year </a>
                                 </div>
                             </div>
-                            <!-- <div class="block">
-                                <img src="images/food-ad.png" alt="">
-                            </div> -->
-
                             <div class="block">
                                 <h4>Movie Tag</h4>
                                 <div class="tag-link">
@@ -157,7 +147,6 @@
                             </div>
                         </div>
                         <!-- End of /.col-md-3 -->
-
                     </div>
                     <!-- End of /.row -->
                 </div>

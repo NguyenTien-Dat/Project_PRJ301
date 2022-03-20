@@ -50,9 +50,7 @@
         </style>
 
     </head>
-
     <body>
-
 
         <!-- TOP HEADER Start
         ================================================== -->
@@ -140,7 +138,6 @@
                                         <th style="padding-top: 16px;">Description</th>
                                         <td>
                                             <textarea name="description" rows="5" cols="20" style="width: 1000px;"> <%=rs.getString(8)%>
-
                                             </textarea>
                                         </td>
                                     </tr>
@@ -163,7 +160,6 @@
                                         </td>
                                     </tr>
                                 </table>
-
                             </form>
                             <%}%>
                         </div>
@@ -181,7 +177,6 @@
         ================================================== -->
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
-
 </html>
 
 
