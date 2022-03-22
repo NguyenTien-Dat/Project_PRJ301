@@ -120,13 +120,22 @@
                             <th class="product-image"><img src="<%=pro.getImagine()%>" alt="" name=""></th>
                             <th class="product-description" style="padding-left: 20px;" name=""><%=pro.getDescription().substring(0, 15)%>... </th>
                             <th class="edit" style="padding-left: 20px; padding-right: 20px;"><a href="ControllerAdmin?do=update&id=<%=pro.getProductID()%>"/>Edit</th>
-                            <th class="delete" style="padding-left: 20px; padding-right: 20px;"><a href="ControllerAdmin?do=deleteP&id=<%=pro.getProductID()%>"/>Delete</th> 
+                            <th class="delete" style="padding-left: 20px; padding-right: 20px;" onclick="showMess(<%=pro.getProductID()%>)"><a href="ControllerAdmin?do=deleteP&id=<%=pro.getProductID()%>"/>Delete</th> 
                         </tr>
                         <%}%>
                     </tbody>
                 </table>
             </div>
         </div>
+                    
+                    <script>
+       function showMess(id) {
+           var option = confirm('Are you sure to delete');
+           if(option === true) {
+               window.location.href = 'delete?id='+id;
+           }
+       }
+   </script>
 
         <!-- FOOTER Start
         ================================================== -->
